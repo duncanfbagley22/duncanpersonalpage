@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/duncanpersonalpage/static/css/main.51fbd066.css",
-    "main.js": "/duncanpersonalpage/static/js/main.13ea3905.js",
+    "main.css": "/duncanpersonalpage/static/css/main.b8d724d1.css",
+    "main.js": "/duncanpersonalpage/static/js/main.f70a4454.js",
     "static/js/453.a040a4d3.chunk.js": "/duncanpersonalpage/static/js/453.a040a4d3.chunk.js",
     "index.html": "/duncanpersonalpage/index.html",
-    "main.51fbd066.css.map": "/duncanpersonalpage/static/css/main.51fbd066.css.map",
-    "main.13ea3905.js.map": "/duncanpersonalpage/static/js/main.13ea3905.js.map",
+    "main.b8d724d1.css.map": "/duncanpersonalpage/static/css/main.b8d724d1.css.map",
+    "main.f70a4454.js.map": "/duncanpersonalpage/static/js/main.f70a4454.js.map",
     "453.a040a4d3.chunk.js.map": "/duncanpersonalpage/static/js/453.a040a4d3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.51fbd066.css",
-    "static/js/main.13ea3905.js"
+    "static/css/main.b8d724d1.css",
+    "static/js/main.f70a4454.js"
   ]
 }
