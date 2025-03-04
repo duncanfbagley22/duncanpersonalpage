@@ -1,0 +1,12 @@
+.blog-container {
+    display: flex;
+    margin: 20px;
+    margin: 0 auto;
+    overflow-y: hidden;
+  }
+  
+  .blog-main {
+    flex: 3;
+    margin-left: 20px;
+  }
+  

@@ -1,0 +1,227 @@
+/*website for icons https://devicon.dev*/
+
+/* Professional Section Styling */
+.professional-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Summary Section */
+  .summary-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #eeeeee; /* White background for the summary */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Light shadow for emphasis */
+  }
+  
+  .headshot {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+    border: 3px solid #ccc; /* Border for headshot */
+  }
+  
+  .summary-text h1 {
+    font-size: 32px;
+    margin: 0;
+    color: #333;
+  }
+  
+  .summary-text h3 {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  .summary-text a {
+    display: inline-block;
+    margin-right: 15px;
+    text-decoration: none;
+    color: #0077b5;
+    font-weight: bold;
+  }
+  
+  .summary-text a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Timeline Section */
+  .timeline-container {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .timeline-container > h2 {
+    font-size: 24px;
+    color: #333; /* Darker color for headings */
+    margin-bottom: 20px; /* Space below heading */
+}
+  
+  .timeline {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 40px;
+    width: 95%;
+    margin: 60px auto;
+    margin-left: 10px;
+  }
+  
+  .timeline::before,
+  .timeline::after {
+    content: "";
+    position: absolute;
+    top: 48%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ccc; /* Grey line */
+    z-index: 0;
+  }
+  
+  .timeline::after {
+    background-color: #f0f0f0; /* Blue line to the left of the selected notch */
+    width: calc(var(--progress) * 1%);
+    transition: width 0.3s ease;
+    z-index: 1;
+  }
+  
+  /* Timeline Notches */
+  .timeline-notch {
+    position: absolute; /* Absolute positioning within the timeline */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border: 2px solid #0077b5;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+  
+  .timeline-notch.selected {
+    background-color: #0077b5;
+  }
+  
+  .timeline-notch.work {
+    border-color: green;
+  }
+
+  .timeline-notch.selected.work {
+    background-color: green;
+  }
+  
+  /* School Type (Blue Border) */
+  .timeline-notch.school {
+    border-color: #0077b5;
+  }
+
+  .timeline-notch.selected.school {
+    background-color: #0077b5;
+  }
+  
+  /* Certification Type (Purple Border) */
+  .timeline-notch.certification {
+    border-color: purple;
+  }
+
+  .timeline-notch.selected.certification {
+    background-color: purple;
+  }
+
+  .date-label {
+    position: absolute;
+    font-size: 12px;
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+    transform-origin: center;
+    background-color: #eee; /* White background for better readability */
+    padding: 2px 5px; /* Add some padding */
+    border-radius: 4px; /* Rounded corners for labels */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Light shadow */
+  }
+  
+  /* Date above the notch */
+  .date-above {
+    top: -42px; /* Adjust distance above the notch */
+    left: 23px;
+  }
+  
+  /* Date below the notch */
+  .date-below {
+    top: 38px; /* Adjust distance below the notch */
+    left: -8px;
+  }
+  
+  /* Details Section */
+  .details-section {
+    text-align: center;
+    background-color: #eeeeee; /* White background for the details */
+    padding: 15px; /* Add padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.details-section h3 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #333; /* Darker text */
+}
+
+.details-section h4 {
+    font-size: 20px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.details-section p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.job-location-duration {
+    color: #555;
+}
+
+.job-details {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+}
+
+  .button-container {
+    display: flex;
+    gap: 10px; /* Adjusts space between buttons */
+  }
+  
+  .icon-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px; /* Adds padding for better appearance */
+    background-color: #0077b5; /* LinkedIn blue */
+    color: white; /* Text color */
+    border: none; /* Removes default border */
+    border-radius: 5px; /* Rounds corners */
+    cursor: pointer; /* Changes cursor to pointer */
+    transition: background-color 0.3s; /* Adds transition for hover effect */
+    font-weight: bold;
+  }
+  
+  .icon-button:hover {
+    background-color: #005582; /* Darker shade on hover */
+  }
+  
+  .icon-button i {
+    margin-right: 8px; /* Adds space between icon and text */
+  }
+  

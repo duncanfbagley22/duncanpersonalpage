@@ -1,0 +1,304 @@
+/* Favorites Page Styles */
+.favorites-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  .favorites-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .favorites-page h3 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    width: 30%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  
+  .card:hover {
+    transform: translateY(-10px); /* Animation on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card img {
+    object-fit:fill;
+    background-color: #9d9c9c;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .card-content h2 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .card-content p {
+    font-size: 1rem;
+    color: #777;
+    margin-top: 0.5rem;
+  }
+
+  /* General styling for the media page */
+.media-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.media-section {
+  margin-bottom: 3rem;
+}
+
+.media-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.media-section h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0rem;
+  text-align: center;
+}
+
+/* Scrollable Cards Section */ 
+.scrollable-cards {
+  display: flex;
+  overflow-x: scroll;
+  gap: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  scroll-behavior: smooth;
+}
+
+.scrollable-cards::-webkit-scrollbar {
+  height: 8px;
+  opacity: 0; /* Hide scrollbar by default */
+  transition: opacity 0.3s ease;
+  display: none;
+}
+
+.card {
+  min-width: 160px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+}
+
+.books-section .card img {
+  height: 300px;
+}
+
+.tv-section .card {
+  min-width: 300px;
+}
+
+.tv-section .card img {
+  height: 450px;
+}
+
+.movies-section .card {
+  min-width: 300px;
+}
+
+.movies-section .card img {
+  height: 450px;
+}
+
+/* Text Container */
+.card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center; /* Center text vertically */
+  padding: 0.5rem;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.card p {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: -.25rem;
+}
+
+/* Popup Styling */
+.favorites-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.favorites-popup-content {
+  background: #fff;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.favorites-popup-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.favorites-popup-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.favorites-popup-titles {
+  flex: 1;
+}
+
+.favorites-popup-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.favorites-popup-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.favorites-popup-link {
+  display: block;
+  margin-top: -12px;
+  color: #999;
+  text-decoration: none;
+  font-size: .75rem;
+  font-weight: 900;
+}
+
+.favorites-popup-link:hover {
+  color: blue
+}
+
+.favorites-popup-description {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between; /* Optional: adjust spacing */
+  margin-top: 10px;
+  width: 11.5rem;
+}
+
+.close-button {
+  margin-top: 20px;
+  background-color: #ff5f5f;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #ff3b3b;
+}
+
+
+/* Grid layout for the restaurant section */
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Individual restaurant card */
+.restaurant-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.restaurant-card:hover {
+  transform: scale(1.05);
+}
+
+/* Image within the card */
+.restaurant-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Title and location text */
+.restaurant-card h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.restaurant-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.main-cards img {
+  object-fit:contain;
+}
+  

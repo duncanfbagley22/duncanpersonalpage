@@ -1,0 +1,54 @@
+/* Form Styles */
+form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+    width: 100%; /* Full width for inputs */
+    padding: 10px;
+    margin: 10px 0; /* Margin around inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Box model */
+}
+
+/* Textarea Specific Styles */
+textarea {
+    height: 150px; /* Larger area for text entry */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+/* Button Styles */
+button {
+    background-color: #007bff; /* Blue background for buttons */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding around text */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    /* Adjust styles for smaller screens */
+    form {
+        padding: 15px; /* Less padding on small screens */
+    }
+
+    button {
+        padding: 8px 16px; /* Smaller padding on small screens */
+    }
+}
