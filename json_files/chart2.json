@@ -1,0 +1,319 @@
+{
+  "id": 2,
+  "title": "The Rust Belt: Total Points Scored by Birth State Over Time",
+  "chartType": "simpleLine",
+  "data": [
+    {
+      "year": "1974",
+      "ohio": 3615,
+      "michigan": 1497,
+      "pennsylvania": 4482
+    },
+    {
+      "year": "1975",
+      "ohio": 13152,
+      "michigan": 5602,
+      "pennsylvania": 16022
+    },
+    {
+      "year": "1976",
+      "ohio": 21624,
+      "michigan": 11969,
+      "pennsylvania": 28708
+    },
+    {
+      "year": "1977",
+      "ohio": 30353,
+      "michigan": 21565,
+      "pennsylvania": 43275
+    },
+    {
+      "year": "1978",
+      "ohio": 35937,
+      "michigan": 32665,
+      "pennsylvania": 53523
+    },
+    {
+      "year": "1979",
+      "ohio": 39874,
+      "michigan": 46420,
+      "pennsylvania": 62014
+    },
+    {
+      "year": "1980",
+      "ohio": 47480,
+      "michigan": 60920,
+      "pennsylvania": 70573
+    },
+    {
+      "year": "1981",
+      "ohio": 56329,
+      "michigan": 71481,
+      "pennsylvania": 79228
+    },
+    {
+      "year": "1982",
+      "ohio": 67768,
+      "michigan": 84078,
+      "pennsylvania": 89690
+    },
+    {
+      "year": "1983",
+      "ohio": 79415,
+      "michigan": 94851,
+      "pennsylvania": 100095
+    },
+    {
+      "year": "1984",
+      "ohio": 91418,
+      "michigan": 104732,
+      "pennsylvania": 107732
+    },
+    {
+      "year": "1985",
+      "ohio": 102764,
+      "michigan": 115411,
+      "pennsylvania": 114878
+    },
+    {
+      "year": "1986",
+      "ohio": 114071,
+      "michigan": 123660,
+      "pennsylvania": 119215
+    },
+    {
+      "year": "1987",
+      "ohio": 125483,
+      "michigan": 130487,
+      "pennsylvania": 122158
+    },
+    {
+      "year": "1988",
+      "ohio": 135714,
+      "michigan": 137503,
+      "pennsylvania": 125892
+    },
+    {
+      "year": "1989",
+      "ohio": 147857,
+      "michigan": 144868,
+      "pennsylvania": 129372
+    },
+    {
+      "year": "1990",
+      "ohio": 156506,
+      "michigan": 152024,
+      "pennsylvania": 134690
+    },
+    {
+      "year": "1991",
+      "ohio": 164642,
+      "michigan": 161519,
+      "pennsylvania": 141834
+    },
+    {
+      "year": "1992",
+      "ohio": 172426,
+      "michigan": 170802,
+      "pennsylvania": 151508
+    },
+    {
+      "year": "1993",
+      "ohio": 178709,
+      "michigan": 181982,
+      "pennsylvania": 159137
+    },
+    {
+      "year": "1994",
+      "ohio": 186264,
+      "michigan": 194646,
+      "pennsylvania": 164505
+    },
+    {
+      "year": "1995",
+      "ohio": 192549,
+      "michigan": 207054,
+      "pennsylvania": 171397
+    },
+    {
+      "year": "1996",
+      "ohio": 199547,
+      "michigan": 218266,
+      "pennsylvania": 178093
+    },
+    {
+      "year": "1997",
+      "ohio": 208004,
+      "michigan": 229401,
+      "pennsylvania": 185212
+    },
+    {
+      "year": "1998",
+      "ohio": 214201,
+      "michigan": 236061,
+      "pennsylvania": 190317
+    },
+    {
+      "year": "1999",
+      "ohio": 223956,
+      "michigan": 247003,
+      "pennsylvania": 198763
+    },
+    {
+      "year": "2000",
+      "ohio": 234558,
+      "michigan": 259868,
+      "pennsylvania": 210701
+    },
+    {
+      "year": "2001",
+      "ohio": 244723,
+      "michigan": 273495,
+      "pennsylvania": 223771
+    },
+    {
+      "year": "2002",
+      "ohio": 255688,
+      "michigan": 288618,
+      "pennsylvania": 237025
+    },
+    {
+      "year": "2003",
+      "ohio": 268434,
+      "michigan": 301911,
+      "pennsylvania": 251552
+    },
+    {
+      "year": "2004",
+      "ohio": 279882,
+      "michigan": 314547,
+      "pennsylvania": 264239
+    },
+    {
+      "year": "2005",
+      "ohio": 290970,
+      "michigan": 326055,
+      "pennsylvania": 277233
+    },
+    {
+      "year": "2006",
+      "ohio": 302870,
+      "michigan": 335281,
+      "pennsylvania": 291355
+    },
+    {
+      "year": "2007",
+      "ohio": 312529,
+      "michigan": 342530,
+      "pennsylvania": 304101
+    },
+    {
+      "year": "2008",
+      "ohio": 320689,
+      "michigan": 349766,
+      "pennsylvania": 316620
+    },
+    {
+      "year": "2009",
+      "ohio": 327555,
+      "michigan": 357213,
+      "pennsylvania": 328381
+    },
+    {
+      "year": "2010",
+      "ohio": 334471,
+      "michigan": 364202,
+      "pennsylvania": 340801
+    },
+    {
+      "year": "2011",
+      "ohio": 339496,
+      "michigan": 368770,
+      "pennsylvania": 347090
+    },
+    {
+      "year": "2012",
+      "ohio": 348027,
+      "michigan": 375012,
+      "pennsylvania": 358137
+    },
+    {
+      "year": "2013",
+      "ohio": 357327,
+      "michigan": 379285,
+      "pennsylvania": 367824
+    },
+    {
+      "year": "2014",
+      "ohio": 367742,
+      "michigan": 383238,
+      "pennsylvania": 377709
+    },
+    {
+      "year": "2015",
+      "ohio": 379688,
+      "michigan": 386403,
+      "pennsylvania": 386325
+    },
+    {
+      "year": "2016",
+      "ohio": 390952,
+      "michigan": 390433,
+      "pennsylvania": 394807
+    },
+    {
+      "year": "2017",
+      "ohio": 401590,
+      "michigan": 397505,
+      "pennsylvania": 404205
+    },
+    {
+      "year": "2018",
+      "ohio": 412983,
+      "michigan": 404676,
+      "pennsylvania": 411974
+    },
+    {
+      "year": "2019",
+      "ohio": 422353,
+      "michigan": 412038,
+      "pennsylvania": 420699
+    },
+    {
+      "year": "2020",
+      "ohio": 427942,
+      "michigan": 416268,
+      "pennsylvania": 426287
+    },
+    {
+      "year": "2021",
+      "ohio": 442220,
+      "michigan": 426810,
+      "pennsylvania": 436855
+    },
+    {
+      "year": "2022",
+      "ohio": 453666,
+      "michigan": 435167,
+      "pennsylvania": 444687
+    },
+    {
+      "year": "2023",
+      "ohio": 464583,
+      "michigan": 441858,
+      "pennsylvania": 452499
+    },
+    {
+      "year": "2024",
+      "ohio": 475870,
+      "michigan": 448735,
+      "pennsylvania": 460426
+    },
+    {
+      "year": "2025",
+      "ohio": 479742,
+      "michigan": 451276,
+      "pennsylvania": 462943
+    }
+  ]
+}

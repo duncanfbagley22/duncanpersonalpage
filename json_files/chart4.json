@@ -1,0 +1,47 @@
+{
+  "id": 4,
+  "title": "Prime Time: Players with the Most Career Games Scoring a Prime Number of Points",
+  "chartType": "simpleBar",
+  "data": [
+    {
+      "name": "Derek Fisher",
+      "group_total": 614
+    },
+    {
+      "name": "Jason Kidd",
+      "group_total": 595
+    },
+    {
+      "name": "Kyle Korver",
+      "group_total": 578
+    },
+    {
+      "name": "John Stockton",
+      "group_total": 551
+    },
+    {
+      "name": "Jason Terry",
+      "group_total": 542
+    },
+    {
+      "name": "Mark Jackson",
+      "group_total": 529
+    },
+    {
+      "name": "Robert Horry",
+      "group_total": 526
+    },
+    {
+      "name": "Clifford Robinson",
+      "group_total": 515
+    },
+    {
+      "name": "Vince Carter",
+      "group_total": 502
+    },
+    {
+      "name": "Robert Parish",
+      "group_total": 492
+    }
+  ]
+}
