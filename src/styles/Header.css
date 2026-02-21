@@ -1,6 +1,6 @@
 /* Header styles */
 header {
-  background-color: #1a1a1a; /* Dark background */
+  background-color: #1a1a1a;
   padding: 1rem;
   position: sticky;
   top: 0;
@@ -9,15 +9,15 @@ header {
 
 header nav ul {
   list-style: none;
-  display: flex; /* Ensures items are inline (next to each other) */
-  gap: .25rem; /* Adds spacing between the links */
+  display: flex;
+  gap: .25rem;
   margin: 0;
   padding: 0;
-  align-items: center; /* Aligns the items vertically (in case the height differs) */
+  align-items: center;
 }
 
 header nav ul li {
-  position: relative; /* Needed for the dropdown */
+  position: relative;
 }
 
 header nav ul a {
@@ -28,9 +28,68 @@ header nav ul a {
 }
 
 header nav ul a:hover {
-  background-color: #333; /* Subtle hover effect */
+  background-color: #333;
 }
 
 header nav ul li:hover .dropdown-menu {
-  display: block; /* Show dropdown on hover */
+  display: block;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-title {
+  display: none;
+  color: white;
+  font-size: .9rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-title {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  header nav ul.open {
+    display: flex;
+  }
+
+  header nav ul a {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #333;
+  }
 }

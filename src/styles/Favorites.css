@@ -302,3 +302,13 @@
   object-fit:contain;
 }
   
+@media (max-width: 600px) {
+  .favorites-popup-content {
+    max-width: 80%;
+    padding: 15px;
+  }
+  .restaurant-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+    gap: 1rem;
+  }
+}
