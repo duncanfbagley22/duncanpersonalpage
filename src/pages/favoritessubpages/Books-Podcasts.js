@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../../styles/Favorites.css';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { app } from '../../firebase'; // Make sure Firebase is initialized here
+import { getImage } from '../../utils/getBooksPodcastsImage';
 
 const MediaPage = () => {
   const [podcastsData, setPodcastsData] = useState([]);
@@ -47,7 +48,7 @@ const MediaPage = () => {
         <div className="scrollable-cards">
           {podcastsData.map((podcast) => (
             <div key={podcast.id} className="card" onClick={() => handleCardClick(podcast)}>
-              <img src={podcast.image} alt={podcast.title} />
+              <img src={getImage(podcast.image)} alt={podcast.title} />
               <div className="card-content">
                 <h3>{podcast.title}</h3>
               </div>
@@ -63,7 +64,7 @@ const MediaPage = () => {
         <div className="scrollable-cards">
           {bookdata.map((book) => (
             <div key={book.id} className="card" onClick={() => handleCardClick(book)}>
-              <img src={book.image} alt={book.title} />
+              <img src={getImage(book.image)} alt={book.title} />
               <h3>{book.title}</h3>
               <p>{book.author}</p>
             </div>
@@ -76,7 +77,7 @@ const MediaPage = () => {
         <div className="favorites-popup" onClick={closePopup}>
           <div className="favorites-popup-content" onClick={(e) => e.stopPropagation()}>
             <div className="favorites-popup-header">
-              <img src={selectedItem.image} alt={selectedItem.title} className="favorites-popup-image" />
+              <img src={getImage(selectedItem.image)} alt={selectedItem.title} className="favorites-popup-image" />
               <div className="favorites-popup-titles">
                 <h2 className="favorites-popup-title">{selectedItem.title}</h2>
                 {selectedItem.author && <h4 className="favorites-popup-subtitle">{selectedItem.author}</h4>}

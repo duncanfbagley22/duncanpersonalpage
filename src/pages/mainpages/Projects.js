@@ -3,6 +3,7 @@ import '../../styles/Projects.css';
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase'; // Adjust the import based on your Firebase setup
 import { collection, getDocs } from 'firebase/firestore';
+import { getImage } from '../../utils/getProjectImage';
 
 const Projects = () => {
   const [projectsData, setProjectsData] = useState([]); // State for projects data
@@ -49,7 +50,7 @@ const Projects = () => {
             className="project-card"
             onClick={() => handleCardClick(project)}
           >
-            <img src={project.projectimage} alt={project.title} />
+            <img src={getImage(project.projectimage)} alt={project.title} />
             <div className="project-info">
               <h3>{project.title}</h3>
               <div className="coding-languages">
@@ -102,7 +103,7 @@ const Projects = () => {
               </button>
               <div className="carousel-images">
                 <img
-                  src={selectedProject.galleryimages[currentImageIndex]}
+                  src={getImage(selectedProject.galleryimages[currentImageIndex])}
                   alt={`Gallery image ${currentImageIndex + 1}`}
                   onClick={() =>
                     window.open(selectedProject.galleryimages[currentImageIndex], '_blank')
