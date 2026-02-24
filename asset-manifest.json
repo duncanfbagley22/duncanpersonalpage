@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/duncanpersonalpage/static/css/main.0f21537d.css",
-    "main.js": "/duncanpersonalpage/static/js/main.a9ec5c91.js",
-    "static/js/453.40ce7448.chunk.js": "/duncanpersonalpage/static/js/453.40ce7448.chunk.js",
+    "main.css": "/duncanpersonalpage/static/css/main.2f8c9541.css",
+    "main.js": "/duncanpersonalpage/static/js/main.9de42829.js",
+    "static/js/453.e6b7a4e3.chunk.js": "/duncanpersonalpage/static/js/453.e6b7a4e3.chunk.js",
     "static/media/mee-sum.jpg": "/duncanpersonalpage/static/media/mee-sum.31f4a399ba6c66320b33.jpg",
     "static/media/dumbnbastats1.png": "/duncanpersonalpage/static/media/dumbnbastats1.1af447fe73aba9f23cf8.png",
     "static/media/personalPage1.png": "/duncanpersonalpage/static/media/personalPage1.1e93ecd01445af0929de.png",
@@ -65,12 +65,12 @@
     "static/media/tvicon.png": "/duncanpersonalpage/static/media/tvicon.834563cebb6f3a353e5c.png",
     "static/media/basketballicon.webp": "/duncanpersonalpage/static/media/basketballicon.bcb815453b6107f22e4a.webp",
     "index.html": "/duncanpersonalpage/index.html",
-    "main.0f21537d.css.map": "/duncanpersonalpage/static/css/main.0f21537d.css.map",
-    "main.a9ec5c91.js.map": "/duncanpersonalpage/static/js/main.a9ec5c91.js.map",
-    "453.40ce7448.chunk.js.map": "/duncanpersonalpage/static/js/453.40ce7448.chunk.js.map"
+    "main.2f8c9541.css.map": "/duncanpersonalpage/static/css/main.2f8c9541.css.map",
+    "main.9de42829.js.map": "/duncanpersonalpage/static/js/main.9de42829.js.map",
+    "453.e6b7a4e3.chunk.js.map": "/duncanpersonalpage/static/js/453.e6b7a4e3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0f21537d.css",
-    "static/js/main.a9ec5c91.js"
+    "static/css/main.2f8c9541.css",
+    "static/js/main.9de42829.js"
   ]
 }
