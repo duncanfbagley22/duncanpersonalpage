@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import '../../styles/Projects.css';
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase'; // Adjust the import based on your Firebase setup
@@ -104,7 +104,7 @@ const Projects = () => {
               <div className="carousel-images">
                 <img
                   src={getImage(selectedProject.galleryimages[currentImageIndex])}
-                  alt={`Gallery image ${currentImageIndex + 1}`}
+                  alt={`${currentImageIndex + 1}`}
                   onClick={() =>
                     window.open(selectedProject.galleryimages[currentImageIndex], '_blank')
                   }

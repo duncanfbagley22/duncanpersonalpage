@@ -15,8 +15,7 @@ import Home from './pages/mainpages/Home'; // Import Home
 import './styles/Global.css';
 
 function App() {
-  const [showUnityGame, setShowUnityGame] = useState(false); // State to control Unity game visibility
-
+  const [_showUnityGame, setShowUnityGame] = useState(false); // State to control Unity game visibility
   const handleContinue = () => {
     setShowUnityGame(true); // Show the Unity game when continue is pressed
   };

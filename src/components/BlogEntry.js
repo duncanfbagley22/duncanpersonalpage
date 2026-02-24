@@ -61,7 +61,7 @@ const BlogEntry = ({ entry }) => {
       {entry.images && entry.images.length > 0 && (
         <div className="images-container">
           {entry.images.map((image, index) => (
-            <img key={index} src={image} alt={`blog image ${index + 1}`} className="blog-image" />
+            <img key={index} src={image} alt={`${index + 1}`} className="blog-image" />
           ))}
         </div>
       )}

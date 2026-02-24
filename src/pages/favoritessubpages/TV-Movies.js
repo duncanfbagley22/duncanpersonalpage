@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import '../../styles/Favorites.css';
 import { app } from '../../firebase'; // Ensure Firebase is initialized
@@ -12,29 +12,29 @@ const MediaPage = () => {
   const [loading, setLoading] = useState(true);
 
   // Fetch TV Show data from Firestore
-  const fetchTvShows = async () => {
-    const tvshowCollection = collection(db, 'tvshowData');
-    const tvSnapshot = await getDocs(tvshowCollection);
-    const tvList = tvSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-    setTvData(tvList);
-  };
+const fetchTvShows = useCallback(async () => {
+  const tvshowCollection = collection(db, 'tvshowData');
+  const tvSnapshot = await getDocs(tvshowCollection);
+  const tvList = tvSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  setTvData(tvList);
+}, [db]);
 
   // Fetch Movies data from Firestore
-  const fetchMovies = async () => {
-    const movieCollection = collection(db, 'movieData');
-    const movieSnapshot = await getDocs(movieCollection);
-    const movieList = movieSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-    setMoviesData(movieList);
-  };
+const fetchMovies = useCallback(async () => {
+  const movieCollection = collection(db, 'movieData');
+  const movieSnapshot = await getDocs(movieCollection);
+  const movieList = movieSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  setMoviesData(movieList);
+}, [db]);
 
   // Fetch data when the component mounts
-  useEffect(() => {
-    const fetchData = async () => {
-      await Promise.all([fetchTvShows(), fetchMovies()]);
-      setLoading(false); // Loading is finished once both requests are done
-    };
-    fetchData();
-  }, []);
+useEffect(() => {
+  const fetchData = async () => {
+    await Promise.all([fetchTvShows(), fetchMovies()]);
+    setLoading(false);
+  };
+  fetchData();
+}, [fetchTvShows, fetchMovies]);
 
   const handleCardClick = (item) => {
     setSelectedItem(item);
