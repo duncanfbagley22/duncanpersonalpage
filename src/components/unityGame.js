@@ -1,71 +1,284 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
+
+const isMobileDevice = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    || (window.matchMedia && window.matchMedia('(max-width: 768px)').matches)
+    || ('ontouchstart' in window);
+};
+
+// Simulate a key event on the iframe's document
+const simulateKey = (iframe, key, code, type) => {
+  try {
+    const doc = iframe.contentDocument || iframe.contentWindow?.document;
+    const target = doc || iframe.contentWindow;
+    if (!target) return;
+
+    const event = new KeyboardEvent(type, {
+      key,
+      code,
+      keyCode: getKeyCode(code),
+      which: getKeyCode(code),
+      bubbles: true,
+      cancelable: true,
+    });
+
+    if (doc) {
+      doc.dispatchEvent(event);
+      if (doc.body) doc.body.dispatchEvent(event);
+    }
+    iframe.contentWindow?.dispatchEvent(event);
+  } catch (e) {
+    // Cross-origin fallback: post a message to the iframe
+    try {
+      iframe.contentWindow?.postMessage({ type, key, code }, '*');
+    } catch (_) {}
+  }
+};
+
+const getKeyCode = (code) => {
+  const map = {
+    'KeyW': 87, 'KeyA': 65, 'KeyS': 83, 'KeyD': 68,
+    'ArrowUp': 38, 'ArrowDown': 40, 'ArrowLeft': 37, 'ArrowRight': 39,
+    'Space': 32, 'Enter': 13,
+  };
+  return map[code] || 0;
+};
+
+const KEY_MAP = {
+  w: { key: 'w', code: 'KeyW' },
+  a: { key: 'a', code: 'KeyA' },
+  s: { key: 's', code: 'KeyS' },
+  d: { key: 'd', code: 'KeyD' },
+  ArrowUp: { key: 'ArrowUp', code: 'ArrowUp' },
+  ArrowDown: { key: 'ArrowDown', code: 'ArrowDown' },
+  ArrowLeft: { key: 'ArrowLeft', code: 'ArrowLeft' },
+  ArrowRight: { key: 'ArrowRight', code: 'ArrowRight' },
+  Space: { key: ' ', code: 'Space' },
+  Enter: { key: 'Enter', code: 'Enter' },
+};
+
+const DpadButton = ({ label, keyId, onPress, onRelease, style }) => {
+  return (
+    <button
+      onPointerDown={(e) => { e.preventDefault(); onPress(keyId); }}
+      onPointerUp={(e) => { e.preventDefault(); onRelease(keyId); }}
+      onPointerLeave={(e) => { e.preventDefault(); onRelease(keyId); }}
+      onPointerCancel={(e) => { e.preventDefault(); onRelease(keyId); }}
+      style={{
+        width: 45,
+        height: 45,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(255,255,255,0.18)',
+        border: '1.5px solid rgba(255,255,255,0.35)',
+        borderRadius: 10,
+        color: '#ffffff',
+        fontSize: 18,
+        fontWeight: 700,
+        cursor: 'pointer',
+        userSelect: 'none',
+        WebkitUserSelect: 'none',
+        touchAction: 'none',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.35)',
+        backdropFilter: 'blur(4px)',
+        WebkitBackdropFilter: 'blur(4px)',
+        transition: 'background-color 0.08s',
+        ...style,
+      }}
+    >
+      {label}
+    </button>
+  );
+};
+
+const Dpad = ({ upKey, downKey, leftKey, rightKey, upLabel, downLabel, leftLabel, rightLabel, onPress, onRelease }) => {
+  return (
+    <div style={{ position: 'relative', width: 135, height: 135 }}>
+      {/* Up */}
+      <div style={{ position: 'absolute', top: 0, left: 45 }}>
+        <DpadButton label={upLabel} keyId={upKey} onPress={onPress} onRelease={onRelease} style={{ borderRadius: '10px 10px 4px 4px' }} />
+      </div>
+      {/* Left */}
+      <div style={{ position: 'absolute', top: 45, left: 0 }}>
+        <DpadButton label={leftLabel} keyId={leftKey} onPress={onPress} onRelease={onRelease} style={{ borderRadius: '10px 4px 4px 10px' }} />
+      </div>
+      {/* Center piece */}
+      <div style={{
+        position: 'absolute', top: 45, left: 45,
+        width: 45, height: 45,
+        backgroundColor: 'rgba(255,255,255,0.1)',
+        border: '1.5px solid rgba(255,255,255,0.2)',
+      }} />
+      {/* Right */}
+      <div style={{ position: 'absolute', top: 45, left: 90 }}>
+        <DpadButton label={rightLabel} keyId={rightKey} onPress={onPress} onRelease={onRelease} style={{ borderRadius: '4px 10px 10px 4px' }} />
+      </div>
+      {/* Down */}
+      <div style={{ position: 'absolute', top: 90, left: 45 }}>
+        <DpadButton label={downLabel} keyId={downKey} onPress={onPress} onRelease={onRelease} style={{ borderRadius: '4px 4px 10px 10px' }} />
+      </div>
+    </div>
+  );
+};
 
 const UnityGame = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [showMobileControls, setShowMobileControls] = useState(false);
+  const iframeRef = useRef(null);
+  const heldKeys = useRef(new Set());
+  const holdIntervals = useRef({});
 
   useEffect(() => {
-    // Hide scrollbar when the component mounts
+    const mobile = isMobileDevice();
+    setShowMobileControls(mobile);
+    // Lock scroll to prevent any scrolling
     document.body.style.overflow = 'hidden';
-
-    // Clean up: Restore scrollbar when the component unmounts
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
+    return () => { document.body.style.overflow = 'auto'; };
   }, []);
 
-  const togglePopup = () => {
-    setIsPopupVisible(!isPopupVisible);
-  };
+  const fireKey = useCallback((keyId, type) => {
+    const k = KEY_MAP[keyId];
+    if (!k || !iframeRef.current) return;
+    simulateKey(iframeRef.current, k.key, k.code, type);
+  }, []);
+
+  const handlePress = useCallback((keyId) => {
+    if (heldKeys.current.has(keyId)) return;
+    heldKeys.current.add(keyId);
+    fireKey(keyId, 'keydown');
+    holdIntervals.current[keyId] = setInterval(() => {
+      fireKey(keyId, 'keydown');
+    }, 80);
+  }, [fireKey]);
+
+  const handleRelease = useCallback((keyId) => {
+    if (!heldKeys.current.has(keyId)) return;
+    heldKeys.current.delete(keyId);
+    clearInterval(holdIntervals.current[keyId]);
+    delete holdIntervals.current[keyId];
+    fireKey(keyId, 'keyup');
+  }, [fireKey]);
+
+  const togglePopup = () => setIsPopupVisible(!isPopupVisible);
 
   return (
     <div
       style={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#333333',
-        paddingTop: '30px',
-        height: '100vh',
+        minHeight: '100vh',
+        paddingTop: showMobileControls ? '16px' : '30px',
         position: 'relative',
+        boxSizing: 'border-box',
       }}
     >
+      {/* Game iframe — shrunk on mobile to leave room for controls */}
       <iframe
+        ref={iframeRef}
         src="https://duncanfbagley22.github.io/duncanPersonalPageUnity/"
         scrolling="no"
         style={{
-          width: '800px',
-          height: '510px',
+          width: showMobileControls ? '100vw' : '800px',
+          height: showMobileControls ? '56vw' : '510px', // maintain ~16:9 ratio on mobile
           border: 'none',
-          borderRadius: '8px',
+          borderRadius: showMobileControls ? '0' : '8px',
           overflow: 'hidden',
           padding: 0,
           margin: 0,
           display: 'block',
-          transform: 'translateY(-50px)', // Move iframe up slightly
+          transform: showMobileControls ? 'none' : 'translateY(-50px)',
+          maxWidth: '100vw',
+          flexShrink: 0,
         }}
         title="Unity Game"
-      ></iframe>
+      />
 
-      {/* Controls Button */}
+      {/* Show Controls button */}
       <button
         onClick={togglePopup}
         style={{
-          marginTop: '0px', // Closer to the iframe
+          marginTop: showMobileControls ? '12px' : '0px',
           padding: '10px 20px',
           fontSize: '16px',
-          backgroundColor: '#777777', // Lighter button color
+          backgroundColor: '#777777',
           color: '#ffffff',
           border: 'none',
           borderRadius: '8px',
           cursor: 'pointer',
-          boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.3)', // Optional: Adding a small shadow for better visibility
+          boxShadow: '0px 2px 5px rgba(0,0,0,0.3)',
+          position: 'relative',
+          zIndex: 10,
         }}
       >
         Show Controls
       </button>
 
-      {/* Popup */}
+      {/* Mobile controls — inline below the game */}
+      {showMobileControls && (
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '20px',
+            padding: '16px 12px 24px 12px',
+            boxSizing: 'border-box',
+            backgroundColor: '#2a2a2a',
+            marginTop: 12,
+            borderTop: '1px solid rgba(255,255,255,0.08)',
+          }}
+        >
+          {/* WASD left */}
+          <div>
+            <div style={{ marginBottom: 6, textAlign: 'center', color: 'rgba(255,255,255,0.45)', fontSize: 11, fontFamily: 'monospace', letterSpacing: 1 }}>MOVE</div>
+            <Dpad
+              upKey="w" downKey="s" leftKey="a" rightKey="d"
+              upLabel="W" downLabel="S" leftLabel="A" rightLabel="D"
+              onPress={handlePress} onRelease={handleRelease}
+            />
+          </div>
+
+          {/* Center: Space + Enter */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 12,
+          }}>
+            <DpadButton
+              label="SPACE"
+              keyId="Space"
+              onPress={handlePress}
+              onRelease={handleRelease}
+              style={{ width: 70, height: 38, fontSize: 11, letterSpacing: 1 }}
+            />
+            <DpadButton
+              label="ENTER"
+              keyId="Enter"
+              onPress={handlePress}
+              onRelease={handleRelease}
+              style={{ width: 70, height: 38, fontSize: 11, letterSpacing: 1 }}
+            />
+          </div>
+
+          {/* Arrow keys right */}
+          <div>
+            <div style={{ marginBottom: 6, textAlign: 'center', color: 'rgba(255,255,255,0.45)', fontSize: 11, fontFamily: 'monospace', letterSpacing: 1 }}>NAVIGATE</div>
+            <Dpad
+              upKey="ArrowUp" downKey="ArrowDown" leftKey="ArrowLeft" rightKey="ArrowRight"
+              upLabel="▲" downLabel="▼" leftLabel="◀" rightLabel="▶"
+              onPress={handlePress} onRelease={handleRelease}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Controls Popup */}
       {isPopupVisible && (
         <div
           style={{
@@ -77,7 +290,7 @@ const UnityGame = () => {
             color: '#ffffff',
             padding: '20px',
             borderRadius: '10px',
-            boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.5)',
+            boxShadow: '0px 0px 15px rgba(0,0,0,0.5)',
             zIndex: 1000,
             width: '90%',
             maxWidth: '400px',
@@ -107,20 +320,18 @@ const UnityGame = () => {
         </div>
       )}
 
-      {/* Overlay */}
+      {/* Overlay backdrop */}
       {isPopupVisible && (
         <div
           onClick={togglePopup}
           style={{
             position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            top: 0, left: 0,
+            width: '100%', height: '100%',
+            backgroundColor: 'rgba(0,0,0,0.5)',
             zIndex: 999,
           }}
-        ></div>
+        />
       )}
     </div>
   );

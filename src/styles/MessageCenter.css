@@ -1,51 +1,54 @@
 /* Message Center Page Styles */
 .message-center {
     max-width: 600px;
+    width: 90%;
     margin: 2rem auto;
     padding: 2rem;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .message-center h1 {
+    box-sizing: border-box;
+}
+
+.message-center h1 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-  }
-  
-  .message-center h3 {
+}
+
+.message-center h3 {
     text-align: center;
     font-size: 1.2rem;
     color: #555;
     margin-bottom: 2rem;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 1.5rem;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 0.5rem;
-  }
-  
-  .form-group input,
-  .form-group textarea {
+}
+
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
-  }
-  
-  .form-group textarea {
+    box-sizing: border-box;
+}
+
+.form-group textarea {
     height: 150px;
     resize: vertical;
-  }
-  
-  button[type="submit"] {
+}
+
+button[type="submit"] {
     display: block;
     width: 100%;
     padding: 1rem;
@@ -56,9 +59,36 @@
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  button[type="submit"]:hover {
+}
+
+button[type="submit"]:hover {
     background-color: #0056b3;
-  }
-  
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .message-center {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .message-center h1 {
+        font-size: 2rem;
+    }
+
+    .message-center h3 {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    button[type="submit"] {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+}

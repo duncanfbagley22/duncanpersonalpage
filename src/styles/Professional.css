@@ -225,3 +225,47 @@
     margin-right: 8px; /* Adds space between icon and text */
   }
   
+  /* Mobile adjustments */
+@media (max-width: 600px) {
+  .summary-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .headshot {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .summary-text h1 {
+    font-size: 24px;
+  }
+
+  .summary-text h3 {
+    font-size: 16px;
+  }
+
+  .details-section h3 {
+    font-size: 20px;
+  }
+
+  .details-section h4 {
+    font-size: 16px;
+  }
+
+  .details-section p,
+  .job-details {
+    font-size: 14px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .icon-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

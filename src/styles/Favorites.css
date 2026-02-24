@@ -62,11 +62,11 @@
 .media-page {
   max-width: 1200px;
   margin: 2rem auto;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .media-section {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .media-section h2 {

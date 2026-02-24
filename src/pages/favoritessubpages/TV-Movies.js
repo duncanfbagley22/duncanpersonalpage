@@ -52,7 +52,7 @@ useEffect(() => {
     <div className="media-page">
       <section className="media-section tv-section">
         <h2>TV Shows</h2>
-        <h3>Here are some of my favorite TV shows</h3>
+        <h3>Some of my favorite TV shows</h3>
         <div className="scrollable-cards">
           {tvData.map((tv) => (
             <div key={tv.id} className="card" onClick={() => handleCardClick(tv)}>

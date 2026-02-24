@@ -44,7 +44,7 @@ const MediaPage = () => {
       {/* Podcasts Section */}
       <section className="media-section podcasts-section">
         <h2>Podcasts</h2>
-        <h3>Some podcasts that I frequently listen to</h3>
+        <h3>Some podcasts that I frequent</h3>
         <div className="scrollable-cards">
           {podcastsData.map((podcast) => (
             <div key={podcast.id} className="card" onClick={() => handleCardClick(podcast)}>

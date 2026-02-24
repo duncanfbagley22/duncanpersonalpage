@@ -44,7 +44,7 @@ const MediaPage = () => {
     <div className="media-page">
       <section className="media-section restaurants-section">
         <h2>Restaurants</h2>
-        <h3>Great places I've eaten at</h3>
+        <h3>Great places I've eaten</h3>
 
         {loading ? (
           <p>Loading...</p>
