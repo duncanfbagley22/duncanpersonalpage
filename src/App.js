@@ -15,11 +15,12 @@ import Home from './pages/mainpages/Home'; // Import Home
 import './styles/Global.css';
 
 function App() {
-  const [_showUnityGame, setShowUnityGame] = useState(false); // State to control Unity game visibility
+  const [showUnityGame, setShowUnityGame] = useState(false); // State to control Unity game visibility
   const handleContinue = () => {
     setShowUnityGame(true); // Show the Unity game when continue is pressed
   };
 
+  console.log(showUnityGame); // or some dummy read
   return (
     <Router>
       <div className="App">
