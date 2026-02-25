@@ -10,7 +10,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [expandedProjectId, setExpandedProjectId] = useState(null); // For mobile accordion
-
+console.log(currentImageIndex)
   useEffect(() => {
     const fetchProjects = async () => {
       try {
@@ -38,15 +38,15 @@ const Projects = () => {
     });
   };
 
-  const handleNextImage = (images, index, setIndex) => {
-    setIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+  // const handleNextImage = (images, index, setIndex) => {
+  //   setIndex((prevIndex) => (prevIndex + 1) % images.length);
+  // };
 
-  const handlePrevImage = (images, index, setIndex) => {
-    setIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
+  // const handlePrevImage = (images, index, setIndex) => {
+  //   setIndex((prevIndex) =>
+  //     prevIndex === 0 ? images.length - 1 : prevIndex - 1
+  //   );
+  // };
 
   return (
     <div className="projects-page">
