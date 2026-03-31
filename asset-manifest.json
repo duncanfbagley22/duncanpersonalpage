@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/duncanpersonalpage/static/css/main.e748bf96.css",
-    "main.js": "/duncanpersonalpage/static/js/main.019cb4c4.js",
+    "main.js": "/duncanpersonalpage/static/js/main.b8e79e74.js",
     "static/js/453.e6b7a4e3.chunk.js": "/duncanpersonalpage/static/js/453.e6b7a4e3.chunk.js",
     "static/media/mee-sum.jpg": "/duncanpersonalpage/static/media/mee-sum.31f4a399ba6c66320b33.jpg",
     "static/media/dumbnbastats1.png": "/duncanpersonalpage/static/media/dumbnbastats1.1af447fe73aba9f23cf8.png",
@@ -15,6 +15,7 @@
     "static/media/community.jpg": "/duncanpersonalpage/static/media/community.dedc6c8c633df5ee65f3.jpg",
     "static/media/dopamine-nation.jpg": "/duncanpersonalpage/static/media/dopamine-nation.b7bbc092bff0546c02fd.jpg",
     "static/media/brooklyn.jpg": "/duncanpersonalpage/static/media/brooklyn.9e2ddb8c87059614712f.jpg",
+    "static/media/Bagley.D.032026.RESUME.pdf": "/duncanpersonalpage/static/media/Bagley.D.032026.RESUME.a8c003c5de95f48a6135.pdf",
     "static/media/personalPage3.png": "/duncanpersonalpage/static/media/personalPage3.7128a5f0844784eab996.png",
     "static/media/crown-burgers.png": "/duncanpersonalpage/static/media/crown-burgers.e0e565a2631daf56c9d5.png",
     "static/media/personalPage2.png": "/duncanpersonalpage/static/media/personalPage2.a915f65d7cf8e815c283.png",
@@ -51,6 +52,7 @@
     "static/media/sysk.jpeg": "/duncanpersonalpage/static/media/sysk.8cd04f15614933cbf076.jpeg",
     "static/media/htds.jpeg": "/duncanpersonalpage/static/media/htds.a5b4385188036067a308.jpeg",
     "static/media/hoop-collective.jpeg": "/duncanpersonalpage/static/media/hoop-collective.8f1e80c04f0ad4763e8e.jpeg",
+    "static/media/headshot.jpeg": "/duncanpersonalpage/static/media/headshot.c6bb19099c89cd594a0c.jpeg",
     "static/media/project-hail-mary.jpg": "/duncanpersonalpage/static/media/project-hail-mary.eabb8bc05319966d56db.jpg",
     "static/media/guglhupf.jpg": "/duncanpersonalpage/static/media/guglhupf.43d09ff575801265dd29.jpg",
     "static/media/hibt.jpeg": "/duncanpersonalpage/static/media/hibt.503e228e838f1338c973.jpeg",
@@ -66,11 +68,11 @@
     "static/media/basketballicon.webp": "/duncanpersonalpage/static/media/basketballicon.bcb815453b6107f22e4a.webp",
     "index.html": "/duncanpersonalpage/index.html",
     "main.e748bf96.css.map": "/duncanpersonalpage/static/css/main.e748bf96.css.map",
-    "main.019cb4c4.js.map": "/duncanpersonalpage/static/js/main.019cb4c4.js.map",
+    "main.b8e79e74.js.map": "/duncanpersonalpage/static/js/main.b8e79e74.js.map",
     "453.e6b7a4e3.chunk.js.map": "/duncanpersonalpage/static/js/453.e6b7a4e3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e748bf96.css",
-    "static/js/main.019cb4c4.js"
+    "static/js/main.b8e79e74.js"
   ]
 }
