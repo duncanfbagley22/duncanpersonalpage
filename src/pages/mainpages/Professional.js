@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { app } from '../../firebase.js'; // Import your Firebase app configuration
 import '../../styles/Professional.css';
+import headShot from '../../favorites-images/other-images/headshot.jpeg';
+import resume from '../../favorites-images/files/Bagley.D.032026.RESUME.pdf';
 
 const Professional = () => {
   const [timelineData, setTimelineData] = useState([]); // State to store timeline data
@@ -44,7 +46,7 @@ const Professional = () => {
     <div className="professional-container">
       {/* Summary Section */}
       <div className="summary-section">
-        <img src="https://firebasestorage.googleapis.com/v0/b/duncan-personal-page.appspot.com/o/otherimagesandfiles%2Fheadshot.jpeg?alt=media&token=12b347f2-f654-4060-86e1-b7d5231ad053" alt="Headshot" className="headshot" />
+        <img src={headShot} alt="Headshot" className="headshot" />
         <div className="summary-text">
           <h1>Duncan Bagley</h1>
           <h3>Manager - Connor Group</h3>
@@ -55,7 +57,7 @@ const Professional = () => {
                 LinkedIn
               </button>
             </a>
-            <a href="https://firebasestorage.googleapis.com/v0/b/duncan-personal-page.appspot.com/o/otherimagesandfiles%2FBagley.D.102024.RESUME.pdf?alt=media&token=d3349f3f-7727-41f5-848c-446affb6d6e4" target="_blank" rel="noopener noreferrer">
+            <a href={resume} target="_blank" rel="noopener noreferrer">
               <button className="icon-button">
                 <i className="fa-solid fa-file-pdf"></i>
                 Resume
