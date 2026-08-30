@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState } from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Blog from './pages/mainpages/Blog';
 import Professional from './pages/mainpages/Professional';
@@ -12,20 +12,19 @@ import TVMovies from './pages/favoritessubpages/TV-Movies';
 import Restaurants from './pages/favoritessubpages/Restaurants';
 import UnityGame from './components/unityGame'; // Import UnityGame
 import Home from './pages/mainpages/Home'; // Import Home
+import AdminAdd from './pages/adminpages/AdminAdd';
+import AdminDelete from './pages/adminpages/AdminDelete';
+import AdminMessages from './pages/adminpages/AdminMessages';
 import './styles/Global.css';
 
-function App() {
-  const [showUnityGame, setShowUnityGame] = useState(false); // State to control Unity game visibility
-  const handleContinue = () => {
-    setShowUnityGame(true); // Show the Unity game when continue is pressed
-  };
+function AppRoutes({ showUnityGame, handleContinue }) {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
 
-  console.log(showUnityGame); // or some dummy read
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Routes>
+    <div className="App">
+      {!isAdminRoute && <Header />}
+      <Routes>
           <Route path="/" element={<Home onContinue={handleContinue} />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/professional" element={<Professional />} />
@@ -36,8 +35,26 @@ function App() {
           <Route path="/tv-movies" element={<TVMovies />} />
           <Route path="/restaurants" element={<Restaurants />} />
           <Route path="/unity-game" element={<UnityGame />} />
-        </Routes>
-      </div>
+          {/* Admin routes: not linked from the main nav. No auth-check yet —
+              access control still relies on Firestore security rules. */}
+          <Route path="/admin" element={<AdminAdd />} />
+          <Route path="/admin/delete" element={<AdminDelete />} />
+          <Route path="/admin/messages" element={<AdminMessages />} />
+      </Routes>
+    </div>
+  );
+}
+
+function App() {
+  const [showUnityGame, setShowUnityGame] = useState(false); // State to control Unity game visibility
+  const handleContinue = () => {
+    setShowUnityGame(true); // Show the Unity game when continue is pressed
+  };
+
+  console.log(showUnityGame); // or some dummy read
+  return (
+    <Router>
+      <AppRoutes showUnityGame={showUnityGame} handleContinue={handleContinue} />
     </Router>
   );
 }

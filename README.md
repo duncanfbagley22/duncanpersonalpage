@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project Structure
+For a detailed breakdown of directories and files, see [PROJECT_MAP.md](./PROJECT_MAP.md)
+
 ## Available Scripts
 
 In the project directory, you can run:
