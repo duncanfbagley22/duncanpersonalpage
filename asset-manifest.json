@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/duncanpersonalpage/static/css/main.dc8dfdf9.css",
-    "main.js": "/duncanpersonalpage/static/js/main.440e1c76.js",
+    "main.css": "/duncanpersonalpage/static/css/main.b917805a.css",
+    "main.js": "/duncanpersonalpage/static/js/main.6a10bcbf.js",
     "static/js/453.e6b7a4e3.chunk.js": "/duncanpersonalpage/static/js/453.e6b7a4e3.chunk.js",
     "static/media/mee-sum.jpg": "/duncanpersonalpage/static/media/mee-sum.31f4a399ba6c66320b33.jpg",
     "static/media/dumbnbastats1.png": "/duncanpersonalpage/static/media/dumbnbastats1.1af447fe73aba9f23cf8.png",
@@ -55,6 +55,10 @@
     "static/media/headshot.jpeg": "/duncanpersonalpage/static/media/headshot.c6bb19099c89cd594a0c.jpeg",
     "static/media/project-hail-mary.jpg": "/duncanpersonalpage/static/media/project-hail-mary.eabb8bc05319966d56db.jpg",
     "static/media/guglhupf.jpg": "/duncanpersonalpage/static/media/guglhupf.43d09ff575801265dd29.jpg",
+    "static/media/PixelifySans-Regular.ttf": "/duncanpersonalpage/static/media/PixelifySans-Regular.8703f2b844f30bf82238.ttf",
+    "static/media/PixelifySans-SemiBold.ttf": "/duncanpersonalpage/static/media/PixelifySans-SemiBold.e5433e6c6c9b33efca02.ttf",
+    "static/media/PixelifySans-Medium.ttf": "/duncanpersonalpage/static/media/PixelifySans-Medium.90e95b704179ee40fa4b.ttf",
+    "static/media/PixelifySans-Bold.ttf": "/duncanpersonalpage/static/media/PixelifySans-Bold.569c71a9c978ac2d434f.ttf",
     "static/media/hibt.jpeg": "/duncanpersonalpage/static/media/hibt.503e228e838f1338c973.jpeg",
     "static/media/hidden-brain.jpeg": "/duncanpersonalpage/static/media/hidden-brain.5d59330f3a999ca859c3.jpeg",
     "static/media/the-martian.jpg": "/duncanpersonalpage/static/media/the-martian.8a561b28b4d973187dce.jpg",
@@ -63,16 +67,17 @@
     "static/media/hruskas.jpg": "/duncanpersonalpage/static/media/hruskas.60ac6461c5050a2460d6.jpg",
     "static/media/dames.jpg": "/duncanpersonalpage/static/media/dames.31643d69360563801035.jpg",
     "static/media/videogameicon.png": "/duncanpersonalpage/static/media/videogameicon.a59a8b6a8ef9e085001b.png",
+    "static/media/Pixel Game.otf": "/duncanpersonalpage/static/media/Pixel Game.a7040ee1df82fd46813b.otf",
     "static/media/pokeballicon.png": "/duncanpersonalpage/static/media/pokeballicon.bdb2ec9f2d47c9bd5402.png",
     "static/media/tvicon.png": "/duncanpersonalpage/static/media/tvicon.834563cebb6f3a353e5c.png",
     "static/media/basketballicon.webp": "/duncanpersonalpage/static/media/basketballicon.bcb815453b6107f22e4a.webp",
     "index.html": "/duncanpersonalpage/index.html",
-    "main.dc8dfdf9.css.map": "/duncanpersonalpage/static/css/main.dc8dfdf9.css.map",
-    "main.440e1c76.js.map": "/duncanpersonalpage/static/js/main.440e1c76.js.map",
+    "main.b917805a.css.map": "/duncanpersonalpage/static/css/main.b917805a.css.map",
+    "main.6a10bcbf.js.map": "/duncanpersonalpage/static/js/main.6a10bcbf.js.map",
     "453.e6b7a4e3.chunk.js.map": "/duncanpersonalpage/static/js/453.e6b7a4e3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc8dfdf9.css",
-    "static/js/main.440e1c76.js"
+    "static/css/main.b917805a.css",
+    "static/js/main.6a10bcbf.js"
   ]
 }
