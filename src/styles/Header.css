@@ -1,10 +1,19 @@
 /* Header styles */
+@font-face {
+  font-family: 'Pixel Game';
+  src: url('../assets/fonts/Pixel Game.otf') format('opentype');
+}
+
 header {
-  background-color: #1a1a1a;
+  background-color: var(--color-primary);
   padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+header nav {
+  font-family: 'Pixel Game', monospace;
 }
 
 header nav ul {
@@ -24,11 +33,13 @@ header nav ul a {
   text-decoration: none;
   color: white;
   padding: 0.5rem 1rem;
+  font-family: 'Pixel Game', monospace;
+  letter-spacing: 0.04em;
   transition: background-color 0.3s;
 }
 
 header nav ul a:hover {
-  background-color: #333;
+  background-color: var(--color-primary-dark);
 }
 
 header nav ul li:hover .dropdown-menu {
@@ -50,6 +61,8 @@ header nav ul li:hover .dropdown-menu {
   color: white;
   font-size: .9rem;
   font-weight: bold;
+  font-family: 'Pixel Game', monospace;
+  letter-spacing: 0.04em;
 }
 
 @media (max-width: 768px) {
@@ -79,7 +92,7 @@ header nav ul li:hover .dropdown-menu {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #1a1a1a;
+    background-color: var(--color-primary);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 
@@ -90,6 +103,6 @@ header nav ul li:hover .dropdown-menu {
   header nav ul a {
     display: block;
     padding: 0.75rem 1rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--color-primary-dark);
   }
 }

@@ -1,14 +1,44 @@
 /* src/styles/global.css */
 
+:root {
+  /* Brand palette — anchor colors, used site-wide */
+  --color-primary: #3368A0;   /* deep blue — nav, headers, primary buttons/links */
+  --color-secondary: #66A3BF; /* mid blue-teal — hover states, secondary accents */
+  --color-tertiary: #C8DFDB;  /* pale teal — subtle backgrounds, tags, borders */
+  --color-quaternary: #F2EFE7;/* warm cream — page background */
+
+  /* Supporting neutrals (not part of the 4 brand colors, but required for
+     readable text/buttons against them) */
+  --color-text: #232D36;        /* body text */
+  --color-text-muted: #5B6B74;  /* secondary/meta text */
+  --color-surface: #FFFFFF;     /* card/panel backgrounds */
+  --color-on-brand: #FFFFFF;    /* text placed on primary/secondary backgrounds */
+
+  /* Derived shades for hover/active states */
+  --color-primary-dark: #26507C;
+  --color-secondary-dark: #4E86A0;
+}
+
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #b9b9b9 0%, #c9c9c9 100%);
-    color: #333;
+    font-family: 'Pixelify Sans', 'Segoe UI', sans-serif;
+    background: var(--color-quaternary);
+    color: var(--color-text);
     display: flex;
     flex-direction: column;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
   }
   
   #root {

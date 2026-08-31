@@ -120,7 +120,7 @@ const UnityGame = () => {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', alignItems: 'center',
-      backgroundColor: '#333333', minHeight: '100vh',
+      backgroundColor: 'var(--color-primary-dark)', minHeight: '100vh',
       paddingTop: showMobileControls ? '16px' : '30px',
       position: 'relative', boxSizing: 'border-box',
     }}>
@@ -145,7 +145,7 @@ const UnityGame = () => {
         style={{
           marginTop: showMobileControls ? '12px' : '0px',
           padding: '10px 20px', fontSize: '16px',
-          backgroundColor: '#777777', color: '#ffffff',
+          backgroundColor: 'var(--color-secondary-dark)', color: '#ffffff',
           border: 'none', borderRadius: '8px', cursor: 'pointer',
           boxShadow: '0px 2px 5px rgba(0,0,0,0.3)',
           position: 'relative', zIndex: 10,
@@ -159,7 +159,7 @@ const UnityGame = () => {
           width: '100%', display: 'flex', flexDirection: 'row',
           alignItems: 'center', justifyContent: 'center',
           gap: '20px', padding: '16px 12px 24px 12px',
-          boxSizing: 'border-box', backgroundColor: '#2a2a2a',
+          boxSizing: 'border-box', backgroundColor: 'var(--color-primary)',
           marginTop: 12, borderTop: '1px solid rgba(255,255,255,0.08)',
         }}>
           <div>
@@ -187,7 +187,7 @@ const UnityGame = () => {
         <div style={{
           position: 'fixed', top: '50%', left: '50%',
           transform: 'translate(-50%, -60%)',
-          backgroundColor: '#222222', color: '#ffffff',
+          backgroundColor: 'var(--color-primary-dark)', color: '#ffffff',
           padding: '20px', borderRadius: '10px',
           boxShadow: '0px 0px 15px rgba(0,0,0,0.5)',
           zIndex: 1000, width: '90%', maxWidth: '400px', textAlign: 'center',
@@ -199,7 +199,7 @@ const UnityGame = () => {
           <p><strong>ENTER</strong> - Make Selection Within Popup Menus</p>
           <button onClick={togglePopup} style={{
             marginTop: '20px', padding: '10px 20px', fontSize: '16px',
-            backgroundColor: '#666666', color: '#ffffff',
+            backgroundColor: 'var(--color-secondary-dark)', color: '#ffffff',
             border: 'none', borderRadius: '8px', cursor: 'pointer',
           }}>Close</button>
         </div>
