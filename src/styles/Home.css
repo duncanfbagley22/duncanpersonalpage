@@ -24,38 +24,105 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 720px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
 }
 
+.home-hero-banner-row {
+  width: min(100vw - 2rem, 1400px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 720px) minmax(0, 1fr);
+  align-items: center;
+}
+
+.state-outline-svg {
+  flex-shrink: 0;
+  justify-self: center;
+  width: clamp(46px, 7vw, 92px);
+  height: auto;
+  shape-rendering: crispEdges;
+  filter: drop-shadow(2px 2px 0 rgba(23, 28, 36, 0.35));
+}
+
+.state-outline-nc {
+  width: clamp(80px, 12vw, 150px);
+}
+
 .home-hero-banner {
   position: relative;
+  overflow: hidden;
   width: 100%;
-  background: linear-gradient(180deg, #f1f3f8 0%, #c8cddc 58%, #9ba3b7 100%);
-  border: 4px solid #252b35;
-  clip-path: polygon(0 0.65rem, 0.65rem 0.65rem, 0.65rem 0, calc(100% - 0.65rem) 0, calc(100% - 0.65rem) 0.65rem, 100% 0.65rem, 100% calc(100% - 0.65rem), calc(100% - 0.65rem) calc(100% - 0.65rem), calc(100% - 0.65rem) 100%, 0.65rem 100%, 0.65rem calc(100% - 0.65rem), 0 calc(100% - 0.65rem));
+  min-width: 0;
+  max-width: 720px;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0 2px, transparent 2px 8px),
+    linear-gradient(180deg, #eef1fb 0%, #c2cbe8 46%, #8393bd 100%);
+  border: 4px solid #232a3d;
+  /* Stepped (staircase) corner cut, quantized to the same 5px unit as the
+     pill frame's corner brackets, so the banner reads as a rounder corner
+     while staying in the same blocky/pixel language as the pills. */
+  clip-path: polygon(
+    0 0.9rem, 0.3rem 0.9rem, 0.3rem 0.6rem, 0.6rem 0.6rem, 0.6rem 0.3rem, 0.9rem 0.3rem, 0.9rem 0,
+    calc(100% - 0.9rem) 0, calc(100% - 0.9rem) 0.3rem, calc(100% - 0.6rem) 0.3rem, calc(100% - 0.6rem) 0.6rem, calc(100% - 0.3rem) 0.6rem, calc(100% - 0.3rem) 0.9rem, 100% 0.9rem,
+    100% calc(100% - 0.9rem), calc(100% - 0.3rem) calc(100% - 0.9rem), calc(100% - 0.3rem) calc(100% - 0.6rem), calc(100% - 0.6rem) calc(100% - 0.6rem), calc(100% - 0.6rem) calc(100% - 0.3rem), calc(100% - 0.9rem) calc(100% - 0.3rem), calc(100% - 0.9rem) 100%,
+    0.9rem 100%, 0.9rem calc(100% - 0.3rem), 0.6rem calc(100% - 0.3rem), 0.6rem calc(100% - 0.6rem), 0.3rem calc(100% - 0.6rem), 0.3rem calc(100% - 0.9rem), 0 calc(100% - 0.9rem)
+  );
   padding: clamp(1.1rem, 3vw, 2rem) 1.5rem;
   text-align: center;
-  box-shadow: inset 4px 4px 0 rgba(255, 255, 255, 0.72), inset -4px -4px 0 rgba(71, 78, 96, 0.5), 4px 4px 0 #171c24;
+  box-shadow: inset 4px 4px 0 rgba(255, 255, 255, 0.72), inset -4px -4px 0 rgba(63, 72, 104, 0.55), 4px 4px 0 #171c24;
+}
+
+.home-hero-banner::before {
+  /* Glossy diagonal band, same motif as the pill frame's highlight */
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 4%;
+  width: 16%;
+  height: 120%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: skewX(-18deg);
+  pointer-events: none;
 }
 
 .home-hero-banner::after {
   content: '';
   position: absolute;
-  inset: 0.45rem;
+  inset: 0.5rem;
   border: 2px solid rgba(255, 255, 255, 0.55);
   pointer-events: none;
 }
 
 .home-hero-name {
+  position: relative;
+  display: block;
   font-family: 'Pixel Game', monospace;
-  color: #303847;
+  color: #262d3f;
   font-size: clamp(1.8rem, 5vw + 1rem, 3.2rem);
   letter-spacing: 0.04em;
-  text-shadow: 2px 2px 0 #ffffff, 3px 3px 0 #7d8598;
+  text-shadow: 2px 2px 0 #ffffff, 3px 3px 0 #6b7699;
+}
+
+.home-hero-divider {
+  position: relative;
+  display: block;
+  width: min(60%, 260px);
+  height: 2px;
+  margin: 0.65rem auto;
+  background: repeating-linear-gradient(90deg, #6b7699 0 6px, transparent 6px 10px);
+}
+
+.home-hero-tagline {
+  position: relative;
+  display: block;
+  font-family: 'Pixel Game', monospace;
+  color: #4a5372;
+  font-size: clamp(0.7rem, 1.2vw + 0.4rem, 1rem);
+  letter-spacing: 0.14em;
+  text-shadow: 1px 1px 0 #ffffff;
 }
 
 /* Instructions popup — shown when the Home tile is pressed */
@@ -122,5 +189,9 @@
   .popup {
     max-width: 90%;
     padding: 1.5rem;
+  }
+
+  .state-outline-svg {
+    display: none;
   }
 }

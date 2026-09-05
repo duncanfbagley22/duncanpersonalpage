@@ -12,7 +12,7 @@
   position: relative;
   z-index: 1000;
   padding: 0;
-  margin-inline: -0.4rem;
+  flex: 0 0 auto;
 }
 
 .header-banner {
@@ -20,15 +20,17 @@
   background: linear-gradient(180deg, #535b6b 0%, #3f4756 52%, #303744 100%);
   border-top: 3px solid #8d95a6;
   box-shadow: inset 0 -3px 0 #1b2029;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 0.7rem), calc(100% - 0.7rem) calc(100% - 0.7rem), calc(100% - 0.7rem) 100%, 0.7rem 100%, 0.7rem calc(100% - 0.7rem), 0 calc(100% - 0.7rem));
+  clip-path: polygon(
+    0 0.7rem, 0.7rem 0.7rem, 0.7rem 0,
+    calc(100% - 0.7rem) 0, calc(100% - 0.7rem) 0.7rem,
+    100% 0.7rem, 100% 100%, 0 100%
+  );
 }
 
 .header-banner::after {
   content: '';
   position: absolute;
-  inset: 0 0 0.35rem;
-  border-top: 2px solid rgba(255, 255, 255, 0.22);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+  inset: 0.35rem;
   pointer-events: none;
 }
 
@@ -273,10 +275,6 @@
 }
 
 @media (max-width: 640px) {
-  .site-header {
-    margin-inline: -0.3rem;
-  }
-
   .header-control {
     width: 1.7rem;
     height: 1.7rem;

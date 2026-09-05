@@ -45,8 +45,7 @@ function AppRoutes({ showUnityGame, handleContinue }) {
   return (
     <div className="App">
       {isAdminRoute ? <main className="admin-route-content">{routes}</main> : (
-        <PixelFrame>
-          <Header />
+        <PixelFrame header={<Header />}>
           <main className="pixel-frame-content">{routes}</main>
         </PixelFrame>
       )}
