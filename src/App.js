@@ -15,16 +15,15 @@ import Home from './pages/mainpages/Home'; // Import Home
 import AdminAdd from './pages/adminpages/AdminAdd';
 import AdminDelete from './pages/adminpages/AdminDelete';
 import AdminMessages from './pages/adminpages/AdminMessages';
+import PixelFrame from './components/PixelFrame';
 import './styles/Global.css';
 
 function AppRoutes({ showUnityGame, handleContinue }) {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
 
-  return (
-    <div className="App">
-      {!isAdminRoute && <Header />}
-      <Routes>
+  const routes = (
+    <Routes>
           <Route path="/" element={<Home onContinue={handleContinue} />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/professional" element={<Professional />} />
@@ -40,7 +39,17 @@ function AppRoutes({ showUnityGame, handleContinue }) {
           <Route path="/admin" element={<AdminAdd />} />
           <Route path="/admin/delete" element={<AdminDelete />} />
           <Route path="/admin/messages" element={<AdminMessages />} />
-      </Routes>
+    </Routes>
+  );
+
+  return (
+    <div className="App">
+      {isAdminRoute ? <main className="admin-route-content">{routes}</main> : (
+        <PixelFrame>
+          <Header />
+          <main className="pixel-frame-content">{routes}</main>
+        </PixelFrame>
+      )}
     </div>
   );
 }

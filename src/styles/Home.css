@@ -1,104 +1,126 @@
 /* Home.css */
 
 .home-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-quaternary); /* warm cream */
-    z-index: 0;
-  }
-  
-  .instructions {
-    position: relative;
-    z-index: 1;
-    background: rgba(242, 239, 231, 0.95); /* quaternary, slightly transparent */
-    border-radius: 15px; /* Rounded corners */
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-    text-align: center;
-    max-width: 800px; /* Set a max width */
-    top: -15%;
-  }
-  
-  .instructions h1 {
-    font-size: 2em; /* Larger title */
-    margin-bottom: 10px; /* Space below title */
-    color: var(--color-text);
-  }
-  
-  .instructions p {
-    font-size: 1.2em; /* Slightly larger text for readability */
-    margin-bottom: 20px; /* Space below paragraph */
-    color: var(--color-text-muted);
-  }
-  
-  .instructions button {
-    padding: 10px 20px; /* Padding for button */
-    font-size: 1em; /* Font size for button text */
-    color: var(--color-on-brand);
-    background-color: var(--color-primary);
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth background color change */
-  }
-  
-  .instructions button:hover {
-    background-color: var(--color-primary-dark);
-  }
-  
-  /* Popup styles */
-  .popup {
-    position: relative;
-    z-index: 1;
-    background: rgba(242, 239, 231, 0.97); /* quaternary, slightly transparent */
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-  }
-  
-  .popup h2 {
-    font-size: 1.5em; /* Larger font size for popup title */
-    margin-bottom: 10px;
-    color: var(--color-text);
-  }
-  
-  .popup p {
-    font-size: 1.1em; /* Font size for popup paragraph */
-    margin-bottom: 20px;
-    color: var(--color-text-muted);
-  }
-  
-  .popup button {
-    padding: 10px 20px;
-    font-size: 1em;
-    color: var(--color-on-brand);
-    background-color: var(--color-secondary-dark);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .popup button:hover {
-    background-color: var(--color-primary-dark);
-  }
-  
+  position: relative;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1rem, 3vw, 2rem) clamp(0.75rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem);
+  overflow-x: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(198, 201, 216, 0.55);
+  z-index: 0;
+}
+
+.home-hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.home-hero-banner {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, #f1f3f8 0%, #c8cddc 58%, #9ba3b7 100%);
+  border: 4px solid #252b35;
+  clip-path: polygon(0 0.65rem, 0.65rem 0.65rem, 0.65rem 0, calc(100% - 0.65rem) 0, calc(100% - 0.65rem) 0.65rem, 100% 0.65rem, 100% calc(100% - 0.65rem), calc(100% - 0.65rem) calc(100% - 0.65rem), calc(100% - 0.65rem) 100%, 0.65rem 100%, 0.65rem calc(100% - 0.65rem), 0 calc(100% - 0.65rem));
+  padding: clamp(1.1rem, 3vw, 2rem) 1.5rem;
+  text-align: center;
+  box-shadow: inset 4px 4px 0 rgba(255, 255, 255, 0.72), inset -4px -4px 0 rgba(71, 78, 96, 0.5), 4px 4px 0 #171c24;
+}
+
+.home-hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0.45rem;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+}
+
+.home-hero-name {
+  font-family: 'Pixel Game', monospace;
+  color: #303847;
+  font-size: clamp(1.8rem, 5vw + 1rem, 3.2rem);
+  letter-spacing: 0.04em;
+  text-shadow: 2px 2px 0 #ffffff, 3px 3px 0 #7d8598;
+}
+
+/* Instructions popup — shown when the Home tile is pressed */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(11, 30, 42, 0.65);
+}
+
+.popup {
+  background: rgba(242, 239, 231, 0.97); /* quaternary, slightly transparent */
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 12px 30px rgba(11, 30, 42, 0.4);
+  text-align: center;
+  max-width: 480px;
+  width: 100%;
+}
+
+.popup h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: var(--color-text);
+}
+
+.popup h3 {
+  font-size: 1.1em;
+  margin: 0 0 10px;
+  color: var(--color-text);
+}
+
+.popup p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  color: var(--color-text-muted);
+}
+
+.popup button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: var(--color-on-brand);
+  background-color: var(--color-secondary-dark);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+  background-color: var(--color-primary-dark);
+}
+
 @media (max-width: 600px) {
-  .instructions {
-    max-width: 80%;
-    padding: 15px;
+  .home-container {
+    padding: 1.75rem 1rem 3rem;
+  }
+
+  .popup {
+    max-width: 90%;
+    padding: 1.5rem;
   }
 }

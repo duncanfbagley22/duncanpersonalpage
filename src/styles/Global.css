@@ -2,29 +2,32 @@
 
 :root {
   /* Brand palette — anchor colors, used site-wide */
-  --color-primary: #3368A0;   /* deep blue — nav, headers, primary buttons/links */
-  --color-secondary: #66A3BF; /* mid blue-teal — hover states, secondary accents */
-  --color-tertiary: #C8DFDB;  /* pale teal — subtle backgrounds, tags, borders */
-  --color-quaternary: #F2EFE7;/* warm cream — page background */
+  --color-primary: #536b9d;
+  --color-secondary: #7894bf;
+  --color-tertiary: #d1d5e3;
+  --color-quaternary: #c6c9d8;
 
   /* Supporting neutrals (not part of the 4 brand colors, but required for
      readable text/buttons against them) */
-  --color-text: #232D36;        /* body text */
-  --color-text-muted: #5B6B74;  /* secondary/meta text */
-  --color-surface: #FFFFFF;     /* card/panel backgrounds */
-  --color-on-brand: #FFFFFF;    /* text placed on primary/secondary backgrounds */
+  --color-text: #252b35;
+  --color-text-muted: #515b6d;
+  --color-surface: #eef0f6;
+  --color-on-brand: #ffffff;
 
   /* Derived shades for hover/active states */
-  --color-primary-dark: #26507C;
-  --color-secondary-dark: #4E86A0;
+  --color-primary-dark: #354a76;
+  --color-secondary-dark: #536d9c;
 }
 
 body {
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
     font-family: 'Pixelify Sans', 'Segoe UI', sans-serif;
-    background: var(--color-quaternary);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%) 0 0 / 6px 6px,
+      var(--color-quaternary);
     color: var(--color-text);
     display: flex;
     flex-direction: column;
@@ -43,7 +46,33 @@ body {
   
   #root {
     flex: 1;
+    min-height: 0;
+    height: 100%;
     display: flex;
     flex-direction: column;
+  }
+
+  .App {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .pixel-frame-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .admin-route-content {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   

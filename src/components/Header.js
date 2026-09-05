@@ -1,35 +1,59 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import DropdownMenu from './DropdownMenu.js';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import NavGrid from './NavGrid';
 import '../styles/Header.css';
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const isHome = location.pathname === '/';
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   return (
-    <header>
-      <nav>
-        <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? '✕' : '☰'}
-        </button>
-        <span className="nav-title">Duncan's Personal Page</span>
-        <ul className={isOpen ? 'open' : ''}>
-          <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-          <li><Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link></li>
-          <li><Link to="/professional" onClick={() => setIsOpen(false)}>Professional</Link></li>
-          <li><Link to="/projects" onClick={() => setIsOpen(false)}>Projects</Link></li>
-          <li>
-            <Link to="/favorites" onClick={() => setIsOpen(false)}>Favorites</Link>
-            <DropdownMenu items={[
-              { label: 'TV and Movies', path: '/tv-movies' },
-              { label: 'Books and Podcasts', path: '/books-podcasts' },
-              { label: 'Restaurants', path: '/restaurants' }
-            ]}
-            onClose={() => setIsOpen(false)} />
-          </li>
-          <li><Link to="/message" onClick={() => setIsOpen(false)}>Message</Link></li>
-        </ul>
-      </nav>
+    <header className="site-header">
+      <div className="header-banner">
+        <div className="banner-row">
+          {!isHome && (
+            <div className="header-controls" aria-label="Page controls">
+              <button
+                type="button"
+                className="header-control header-back"
+                onClick={handleBack}
+                aria-label="Go back"
+                title="Go back"
+              >
+                <span aria-hidden="true">←</span>
+              </button>
+              <button
+                type="button"
+                className={`header-control header-menu-toggle${menuOpen ? ' is-open' : ''}`}
+                onClick={() => setMenuOpen((isOpen) => !isOpen)}
+                aria-expanded={menuOpen}
+                aria-controls="header-navigation"
+                aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+                title={menuOpen ? 'Close navigation' : 'Open navigation'}
+              >
+                <span aria-hidden="true" className="menu-glyph">
+                  <span />
+                  <span />
+                  <span />
+                </span>
+              </button>
+            </div>
+          )}
+          <Link to="/" className="banner-name">Duncan Bagley</Link>
+          {!isHome && <span className="header-balance" aria-hidden="true" />}
+        </div>
+        {!isHome && menuOpen && (
+          <nav id="header-navigation" className="header-navigation" aria-label="Main navigation">
+            <NavGrid size="compact" onNavigate={() => setMenuOpen(false)} />
+          </nav>
+        )}
+      </div>
     </header>
   );
 };
