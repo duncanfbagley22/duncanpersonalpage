@@ -6,6 +6,7 @@ import React from 'react';
 
 const PillFrame = ({ tint = '#9aa7ab', id }) => {
   const gradId = `pill-grad-${id}`;
+  const hoverGradId = `pill-hover-grad-${id}`;
 
   return (
     <svg
@@ -26,8 +27,19 @@ const PillFrame = ({ tint = '#9aa7ab', id }) => {
           y2="0%"
         >
           <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="42%" stopColor="#f8faf9" />
-          <stop offset="62%" stopColor="#e7ebeb" />
+          <stop offset="70%" stopColor="#ffffff" />
+          <stop offset="100%" stopColor={tint} />
+        </linearGradient>
+
+        <linearGradient
+          id={hoverGradId}
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="0%"
+        >
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="10%" stopColor="#ffffff" />
           <stop offset="100%" stopColor={tint} />
         </linearGradient>
 
@@ -39,18 +51,26 @@ const PillFrame = ({ tint = '#9aa7ab', id }) => {
 
       <path
         d="
-          M 5 0
-          H 215
+          M 10 0
+          H 210
           V 5
+          H 215
+          V 10
           H 220
-          V 43
+          V 38
           H 215
-          V 48
-          H 5
           V 43
-          H 0
-          V 5
+          H 210
+          V 48
+          H 10
+          V 43
           H 5
+          V 38
+          H 0
+          V 10
+          H 5
+          V 5
+          H 10
           Z
         "
         fill="#101215"
@@ -58,11 +78,12 @@ const PillFrame = ({ tint = '#9aa7ab', id }) => {
 
       {/* Extra black depth along bottom/right */}
       <path
+        className="pill-body-default"
         d="
-          M 5 43
-          H 215
+          M 10 43
+          H 210
           V 48
-          H 5
+          H 10
           Z
         "
         fill="#090b0d"
@@ -70,9 +91,9 @@ const PillFrame = ({ tint = '#9aa7ab', id }) => {
 
       <path
         d="
-          M 215 5
+          M 215 10
           H 220
-          V 43
+          V 38
           H 215
           Z
         "
@@ -83,12 +104,43 @@ const PillFrame = ({ tint = '#9aa7ab', id }) => {
           INNER METALLIC BODY
           ===================================================== */}
 
-      <rect
-        x="5"
-        y="5"
-        width="210"
-        height="38"
+      <path
+        d="
+          M 10 5
+          H 210
+          V 10
+          H 215
+          V 38
+          H 210
+          V 43
+          H 10
+          V 38
+          H 5
+          V 10
+          H 10
+          Z
+        "
         fill={`url(#${gradId})`}
+      />
+
+      <path
+        className="pill-body-hover"
+        d="
+          M 10 5
+          H 210
+          V 10
+          H 215
+          V 38
+          H 210
+          V 43
+          H 10
+          V 38
+          H 5
+          V 10
+          H 10
+          Z
+        "
+        fill={`url(#${hoverGradId})`}
       />
 
 
