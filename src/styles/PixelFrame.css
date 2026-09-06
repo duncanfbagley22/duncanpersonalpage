@@ -144,6 +144,7 @@
     border-width: 0.3rem;
   }
 
+  .pixel-frame-footer { min-height: 2.4rem; }
   .pixel-frame-side { width: 0.25rem; }
   .pixel-frame-footer { padding-inline: 0.45rem; }
   .footer-label { letter-spacing: 0.03em; }

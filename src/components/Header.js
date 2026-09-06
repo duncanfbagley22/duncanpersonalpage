@@ -45,7 +45,7 @@ const Header = () => {
               </button>
             </div>
           )}
-          <Link to="/" className="banner-name">Duncan Bagley</Link>
+          {!isHome && <Link to="/" className="banner-name">Duncan Bagley</Link>}
           {!isHome && <span className="header-balance" aria-hidden="true" />}
         </div>
         {!isHome && menuOpen && (

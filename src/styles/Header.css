@@ -154,7 +154,7 @@
 }
 
 .nav-grid-large {
-  gap: 3.5rem 3.5rem;
+  gap: 3rem 3.5rem;
 }
 .nav-pill {
   position: relative;
@@ -162,6 +162,7 @@
   display: flex;
   align-items: center;
 
+  box-sizing: border-box;
   width: 100%;
 
   /*
@@ -332,7 +333,7 @@
 
   background:
     linear-gradient(
-      135deg,
+      115deg,
       rgba(255, 255, 255, 0.58) 0 3px,
       rgba(255, 255, 255, 0.15) 3px 8px,
       transparent 8px 60%,
@@ -455,7 +456,7 @@
 
 .nav-grid-large .nav-pill-label {
   padding-inline: 1rem;
-  font-size: 1.15rem;
+  font-size: 1.35rem;
 }
 
 
@@ -464,9 +465,16 @@
    ========================================================= */
 
 @media (max-width: 600px) {
+  .banner-row {
+    min-height: 2.4rem;
+  }
+
   .nav-pill {
     min-height: 56px;
     padding: 6px 12px 6px 10px;
+    width: 90%;
+    margin-inline: auto;
+    scale: 0.9;
   }
 
   .nav-pill-icon-badge {
@@ -476,7 +484,7 @@
 
   .nav-pill-label {
     padding-inline: 0.65rem;
-    font-size: 0.82rem;
+    font-size: .82rem;
   }
 
   .pill-frame-svg {
@@ -500,7 +508,7 @@
 
   .nav-grid-large {
     grid-template-columns: 1fr;
-    gap: 1.1rem;
+    gap: 1.15rem;
   }
 
   .nav-grid-large .nav-pill {
@@ -513,7 +521,7 @@
   }
 
   .nav-grid-large .nav-pill-label {
-    font-size: 0.95rem;
+    font-size: 1.15rem;
   }
 
   .header-navigation .nav-grid {
