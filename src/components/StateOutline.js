@@ -42,6 +42,53 @@ const StateOutline = ({ state, label }) => {
           <path d="M0 0H6M0 3H6" stroke="#ffffff" strokeOpacity="0.3" strokeWidth="1" />
           <rect x="1" y="1" width="2" height="2" fill="#232a3d" fillOpacity="0.2" />
         </pattern>
+        <clipPath id={`${gradId}-clip`}>
+          <path d={shape.d} />
+        </clipPath>
+        {state === 'NC' && (
+          <>
+            <linearGradient id={`${gradId}-flag`} x1="0" y1="293.4" x2="0" y2="371" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#8f102b" />
+              <stop offset="65%" stopColor="#ffffff" />
+              <stop offset="100%" stopColor="#ffffff" />
+            </linearGradient>
+            <linearGradient id={`${gradId}-blue`} x1="684.9" y1="0" x2="730" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#123f72" />
+              <stop offset="72%" stopColor="#4f82b0" stopOpacity="0.92" />
+              <stop offset="100%" stopColor="#4f82b0" stopOpacity="0.08" />
+            </linearGradient>
+            <linearGradient id={`${gradId}-star`} x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="100%" stopColor="#d9e2eb" />
+            </linearGradient>
+          </>
+        )}
+        {state === 'UT' && (
+          <>
+            <linearGradient id={`${gradId}-flag-blue`} x1="0" y1="182.5" x2="0" y2="226" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#123f72" />
+              <stop offset="72%" stopColor="#4f82b0" stopOpacity="0.92" />
+              <stop offset="100%" stopColor="#4f82b0" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id={`${gradId}-flag-white`} x1="0" y1="225" x2="0" y2="286" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="100%" stopColor="#e6edf2" />
+            </linearGradient>
+            <linearGradient id={`${gradId}-flag-red`} x1="0" y1="280" x2="0" y2="314.5" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#b92e3f" stopOpacity="0" />
+              <stop offset="35%" stopColor="#b92e3f" stopOpacity="0.82" />
+              <stop offset="100%" stopColor="#7f142b" />
+            </linearGradient>
+            <linearGradient id={`${gradId}-flag-gold`} x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#ffe28a" />
+              <stop offset="100%" stopColor="#c98a20" />
+            </linearGradient>
+            <linearGradient id={`${gradId}-flag-hex`} x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#2e6394" />
+              <stop offset="100%" stopColor="#123f72" />
+            </linearGradient>
+          </>
+        )}
       </defs>
       <path
         d={shape.d}
@@ -50,6 +97,41 @@ const StateOutline = ({ state, label }) => {
         strokeWidth="3"
         strokeLinejoin="miter"
       />
+      {state === 'NC' && (
+        <g clipPath={`url(#${gradId}-clip)`}>
+          <rect x="684.9" y="293.4" width="164.7" height="77.6" fill={`url(#${gradId}-flag)`} />
+          <rect x="684.9" y="293.4" width="46" height="77.6" fill={`url(#${gradId}-blue)`} />
+          <path
+            d="M702 307 l3 8 8 0 -6 5 2 8 -7 -5 -7 5 2 -8 -6 -5 8 0z"
+            fill={`url(#${gradId}-star)`}
+            opacity="0.9"
+          />
+        </g>
+      )}
+      {state === 'UT' && (
+        <g clipPath={`url(#${gradId}-clip)`}>
+          <rect x="162.8" y="182.5" width="106.4" height="132" fill={`url(#${gradId}-flag-white)`} />
+          <rect x="162.8" y="182.5" width="106.4" height="54" fill={`url(#${gradId}-flag-blue)`} />
+          <path
+            d="M162.8 284 H269.2 V314.5 H162.8 Z"
+            fill={`url(#${gradId}-flag-red)`}
+          />
+          <polygon
+            points="216,235 230,245 230,264 216,274 202,264 202,245"
+            fill={`url(#${gradId}-flag-hex)`}
+            stroke={`url(#${gradId}-flag-gold)`}
+            strokeWidth="2"
+          />
+          <path
+            d="M209 257 H223 V261 H209 Z M211 252 H221 V257 H211 Z M213 247 H219 V252 H213 Z"
+            fill={`url(#${gradId}-flag-gold)`}
+          />
+          <path
+            d="M216 265 l2 4 4 0 -3 2 1 4 -4 -2 -4 2 1 -4 -3 -2 4 0z"
+            fill={`url(#${gradId}-flag-white)`}
+          />
+        </g>
+      )}
       <path
         d={shape.d}
         fill={`url(#${gradId}-texture)`}
