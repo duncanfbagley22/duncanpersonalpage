@@ -33,6 +33,8 @@
 
 .home-hero-banner-row {
   width: min(100vw - 2rem, 1400px);
+  box-sizing: border-box;
+  padding-inline: clamp(0.75rem, 3vw, 2rem);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 720px) minmax(0, 1fr);
   align-items: center;
@@ -179,6 +181,20 @@
 
 .popup button:hover {
   background-color: var(--color-primary-dark);
+}
+
+@media (max-width: 1199px) {
+  .home-hero-banner-row {
+    display: block;
+  }
+
+  .state-outline-svg {
+    display: none;
+  }
+
+  .home-hero-banner {
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 600px) {
