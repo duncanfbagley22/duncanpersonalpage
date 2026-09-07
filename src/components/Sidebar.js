@@ -75,28 +75,36 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
           <div className="date-range">
             <label>
               <span>Start</span>
-              <div className="date-input-wrapper">
-                <input
-                  type="date"
-                  value={startDate}
-                  onChange={handleStartDateChange}
-                  className="date-input pixel-input"
-                />
-                <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
-              </div>
+<div className="date-input-wrapper">
+  <input
+    type="date"
+    value={startDate}
+    onChange={handleStartDateChange}
+    className={`date-input pixel-input ${!startDate ? 'date-input-empty' : ''}`}
+  />
+  {!startDate && (
+    <span className="date-input-placeholder">mm/dd/yyyy</span>
+  )}
+  <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
+</div>
+
             </label>
             <span className="date-range-separator">to</span>
             <label>
               <span>End</span>
-              <div className="date-input-wrapper">
-                <input
-                  type="date"
-                  value={endDate}
-                  onChange={handleEndDateChange}
-                  className="date-input pixel-input"
-                />
-                <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
-              </div>
+<div className="date-input-wrapper">
+  <input
+    type="date"
+    value={endDate}
+    onChange={handleEndDateChange}
+    className={`date-input pixel-input ${!endDate ? 'date-input-empty' : ''}`}
+  />
+  {!endDate && (
+    <span className="date-input-placeholder">mm/dd/yyyy</span>
+  )}
+  <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
+</div>
+
             </label>
           </div>
         </div>

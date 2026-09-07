@@ -108,6 +108,7 @@
 
 .search-bar {
   width: 100%;
+    height: 38px;
   padding: 8px;
   padding-right: 34px;
 }
@@ -181,12 +182,12 @@
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  overflow: hidden;
 }
 
 .date-input-wrapper .date-input {
   display: block;
   box-sizing: border-box;
+    height: 38px;
   width: 100%;
   min-width: 0;
   max-width: 100%;
@@ -200,8 +201,9 @@
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  padding: 6px;
-  padding-right: 30px;
+  padding-right: 26px;
+  white-space: nowrap;
+  overflow: hidden;
 
   /*
    * Prevent Safari/iOS from using the native date control's
@@ -319,6 +321,25 @@
   color: var(--color-text-muted);
 }
 
+.date-input-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 7px;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  font-size: 14px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.date-input-empty {
+  color: transparent;
+}
+
+.date-input-empty:focus {
+  color: transparent;
+}
+
 @media (max-width: 768px) {
   .sidebar-container {
     flex: 0 0 auto;
@@ -352,9 +373,13 @@
   }
 
   .date-input {
+        font-size: 12px;
     width: 100%;
     min-width: 0;
     max-width: 100%;
+      white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
   }
 
   .search-bar-wrapper {
@@ -393,3 +418,5 @@
     padding-right: 0;
   }
 }
+
+
