@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Calendar2, ChevronDown2, ChevronRight2 } from 'pixelarticons/react';
+import React, { useState } from 'react';
+import { Calendar2, ChevronDown2, ChevronRight2, Search } from 'pixelarticons/react';
 import '../styles/PixelInput.css';
 import '../styles/Sidebar.css';
 
@@ -7,26 +7,6 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [isSearchCompact, setIsSearchCompact] = useState(false);
-  const searchInputRef = useRef(null);
-
-  useEffect(() => {
-    const searchInput = searchInputRef.current;
-
-    if (!searchInput) {
-      return undefined;
-    }
-
-    const updateSearchPlaceholder = () => {
-      setIsSearchCompact(searchInput.offsetWidth < 240);
-    };
-
-    updateSearchPlaceholder();
-    const resizeObserver = new ResizeObserver(updateSearchPlaceholder);
-    resizeObserver.observe(searchInput);
-
-    return () => resizeObserver.disconnect();
-  }, []);
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
@@ -38,6 +18,12 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
 
   const handleEndDateChange = (event) => {
     setEndDate(event.target.value);
+  };
+
+  const handleClearFilters = () => {
+    setSearchQuery('');
+    setStartDate('');
+    setEndDate('');
   };
 
   const handleControlsToggle = (event) => {
@@ -72,43 +58,57 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
         </summary>
 
         {/* Search Bar */}
-        <input
-          ref={searchInputRef}
-          type="text"
-          placeholder={isSearchCompact ? 'Search...' : 'Search by title, tag, or link...'}
-          value={searchQuery}
-          onChange={handleSearch}
-          className="search-bar pixel-input"
-        />
+        <div className="search-bar-wrapper">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={handleSearch}
+            className="search-bar pixel-input"
+          />
+          <Search className="search-bar-icon" aria-hidden="true" focusable="false" />
+        </div>
 
         {/* Date Filters */}
         <div className="date-filters">
-          <label>
-            Start Date:
-            <div className="date-input-wrapper">
-              <input
-                type="date"
-                value={startDate}
-                onChange={handleStartDateChange}
-                className="date-input pixel-input"
-              />
-              <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
-            </div>
-          </label>
-          <label>
-            End Date:
-            <div className="date-input-wrapper">
-              <input
-                type="date"
-                value={endDate}
-                onChange={handleEndDateChange}
-                className="date-input pixel-input"
-              />
-              <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
-            </div>
-          </label>
+          <span className="date-filter-heading">Date</span>
+          <div className="date-range">
+            <label>
+              <span>Start</span>
+              <div className="date-input-wrapper">
+                <input
+                  type="date"
+                  value={startDate}
+                  onChange={handleStartDateChange}
+                  className="date-input pixel-input"
+                />
+                <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
+              </div>
+            </label>
+            <span className="date-range-separator">to</span>
+            <label>
+              <span>End</span>
+              <div className="date-input-wrapper">
+                <input
+                  type="date"
+                  value={endDate}
+                  onChange={handleEndDateChange}
+                  className="date-input pixel-input"
+                />
+                <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
+              </div>
+            </label>
+          </div>
         </div>
 
+        <button
+          type="button"
+          className="clear-filters-button"
+          onClick={handleClearFilters}
+          disabled={!searchQuery && !startDate && !endDate}
+        >
+          Clear
+        </button>
         <hr className="posts-divider" />
         <h3 className="previous-posts-heading">Previous Posts</h3>
 

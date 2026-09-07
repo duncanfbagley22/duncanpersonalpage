@@ -31,7 +31,7 @@
   margin: 0;
   font-family: 'Pixel Game', monospace;
   color: #262d3f;
-  font-size: clamp(1.1rem, 2vw + 0.6rem, 1.7rem);
+  font-size: clamp(1.8rem, 5vw + 1rem, 3.2rem);
   letter-spacing: 0.06em;
   text-shadow: 2px 2px 0 #ffffff, 3px 3px 0 #6b7699;
 }

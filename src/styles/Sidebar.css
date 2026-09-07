@@ -7,6 +7,7 @@
 }
 
 .entry-controls summary {
+  display: inline-block;
   width: fit-content;
   margin-bottom: 16px;
   padding: 8px 12px;
@@ -25,6 +26,38 @@
     calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px),
     0 calc(100% - 6px)
   );
+}
+
+.clear-filters-button {
+  display: block;
+  margin: 0 auto 12px 0;
+  padding: 6px 9px;
+  border: 3px solid #7d4a4a;
+  background: #f3dada;
+  color: #5c2b2b;
+  cursor: pointer;
+  font-family: 'Pixel Game', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  clip-path: polygon(
+    0 4px, 4px 4px, 4px 0,
+    calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
+    100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px),
+    0 calc(100% - 4px)
+  );
+}
+
+.clear-filters-button:hover:not(:disabled),
+.clear-filters-button:focus-visible:not(:disabled) {
+  border-color: #9d3434;
+  background: #f7caca;
+  outline: none;
+}
+
+.clear-filters-button:disabled {
+  cursor: default;
+  opacity: 0.55;
 }
 
 .entry-controls summary > span {
@@ -68,16 +101,63 @@
 }
 
 .search-bar {
-  width: 90%;
+  width: 100%;
   padding: 8px;
+  padding-right: 34px;
+}
+
+.search-bar-wrapper {
+  position: relative;
+  width: 90%;
   margin-bottom: 20px;
+}
+
+.search-bar-icon {
+  position: absolute;
+  top: 50%;
+  right: 9px;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
 }
 
 .date-filters {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+}
 
+.date-filter-heading {
+  margin-bottom: 4px;
+  font-family: 'Pixel Game', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.date-range {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+}
+
+.date-range label {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.date-range label > span {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 12px;
+}
+
+.date-range-separator {
+  flex: 0 0 auto;
+  padding-bottom: 8px;
+  color: var(--color-text-muted);
+  font-size: 12px;
 }
 
 .date-input {
@@ -88,7 +168,7 @@
 
 .date-input-wrapper {
   position: relative;
-  width: 90%;
+  width: 100%;
 }
 
 .date-input-wrapper .date-input {
@@ -223,7 +303,7 @@
     overflow: visible;
   }
 
-  .search-bar,
+  .search-bar-wrapper,
   .date-input-wrapper {
     width: 100%;
   }
@@ -236,6 +316,10 @@
     margin-right: 0;
     margin-bottom: 0;
     margin-left: 0;
+  }
+
+  .entry-controls:not([open]) .clear-filters-button {
+    margin-bottom: 12px;
   }
 
   .entry-controls summary:hover,
