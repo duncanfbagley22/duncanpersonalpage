@@ -1,15 +1,12 @@
 .blog-page {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    min-height: 0;
+    min-height: 100%;
   }
 
   .blog-container {
     display: flex;
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow: hidden;
+    flex: 0 0 auto;
     margin: 0 auto;
     width: 100%;
   }
@@ -17,8 +14,6 @@
   .blog-main {
     flex: 3;
     margin-left: 20px;
-    min-height: 0;
-    overflow: hidden;
   }
 
   @media (max-width: 768px) {

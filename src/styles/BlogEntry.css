@@ -19,7 +19,6 @@
 
   .blog-entry-container {
     padding: 20px;
-    overflow-y: auto;
     background: linear-gradient(180deg, #f4f5fa 0%, #dfe2ee 100%);
     clip-path: polygon(
       0 calc(0.6rem - 4px), calc(0.6rem - 4px) calc(0.6rem - 4px), calc(0.6rem - 4px) 0,

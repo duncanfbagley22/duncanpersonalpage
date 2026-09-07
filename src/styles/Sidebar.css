@@ -169,10 +169,13 @@
 .date-input-wrapper {
   position: relative;
   width: 100%;
+  min-width: 0;
 }
 
 .date-input-wrapper .date-input {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   margin-bottom: 0;
 }
 
