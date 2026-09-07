@@ -385,6 +385,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
+    padding: 6px;
+    padding-top: 7px;
+    padding-right: 46px;
+
   }
 
   .search-bar-wrapper {

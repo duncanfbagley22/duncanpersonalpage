@@ -199,7 +199,15 @@
 
 @media (max-width: 600px) {
   .home-container {
-    padding: 1.75rem 1rem 3rem;
+    padding: 0.75rem 0.75rem 1rem;
+  }
+
+  .home-hero {
+    gap: 1.3rem;
+  }
+
+  .home-hero-banner {
+    padding-block: 0.75rem;
   }
 
   .popup {

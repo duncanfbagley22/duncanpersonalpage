@@ -428,16 +428,16 @@
   }
 
   .nav-pill {
-    min-height: 56px;
-    padding: 6px 12px 6px 10px;
+    min-height: 42px;
+    padding: 4px 10px 4px 8px;
     width: 90%;
     margin-inline: auto;
-    scale: 0.9;
+    aspect-ratio: 6.5 / 1;
   }
 
   .nav-pill-icon-badge {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
 
   .nav-pill-label {
@@ -455,9 +455,23 @@
 
 
 @media (max-width: 640px) {
+  .header-controls {
+    left: 1rem;
+  }
+
   .header-control {
     width: 1.7rem;
     height: 1.7rem;
+  }
+
+  .header-back {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .header-back-icon {
+    width: 1.3rem;
+    height: 1.3rem;
   }
 
   .banner-name {
@@ -470,15 +484,16 @@
   }
 
   .nav-grid-large .nav-pill {
-    aspect-ratio: 5 / 1;
+    min-height: 46px;
+    aspect-ratio: 6 / 1;
   }
 
   .nav-grid-large .nav-pill-icon-badge {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
   .nav-grid-large .nav-pill-label {
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 }

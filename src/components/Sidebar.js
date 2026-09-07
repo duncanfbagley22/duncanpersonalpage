@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Calendar2, ChevronDown2, ChevronRight2, Search } from 'pixelarticons/react';
 import '../styles/PixelInput.css';
 import '../styles/Sidebar.css';
@@ -7,6 +7,7 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const controlsRef = useRef(null);
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
@@ -32,6 +33,13 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
     }
   };
 
+  const handleEntrySelect = (entry) => {
+    onSelectEntry(entry);
+    if (window.innerWidth <= 768 && controlsRef.current) {
+      controlsRef.current.open = false;
+    }
+  };
+
   // Filter logic
   const filteredEntries = entries.filter(entry => {
     const matchesSearchQuery =
@@ -50,7 +58,7 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
 
   return (
     <div className="sidebar-container">
-      <details className="entry-controls" open>
+      <details ref={controlsRef} className="entry-controls" open>
         <summary onClick={handleControlsToggle}>
           <ChevronRight2 className="entry-toggle-icon entry-toggle-icon-closed" aria-hidden="true" focusable="false" />
           <ChevronDown2 className="entry-toggle-icon entry-toggle-icon-open" aria-hidden="true" focusable="false" />
@@ -74,7 +82,6 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
           <span className="date-filter-heading">Date</span>
           <div className="date-range">
             <label>
-              <span>Start</span>
 <div className="date-input-wrapper">
   <input
     type="date"
@@ -83,7 +90,7 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
     className={`date-input pixel-input ${!startDate ? 'date-input-empty' : ''}`}
   />
   {!startDate && (
-    <span className="date-input-placeholder">mm/dd/yyyy</span>
+    <span className="date-input-placeholder">Start</span>
   )}
   <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
 </div>
@@ -91,7 +98,6 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
             </label>
             <span className="date-range-separator">to</span>
             <label>
-              <span>End</span>
 <div className="date-input-wrapper">
   <input
     type="date"
@@ -100,7 +106,7 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
     className={`date-input pixel-input ${!endDate ? 'date-input-empty' : ''}`}
   />
   {!endDate && (
-    <span className="date-input-placeholder">mm/dd/yyyy</span>
+    <span className="date-input-placeholder">End</span>
   )}
   <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
 </div>
@@ -132,7 +138,7 @@ const Sidebar = ({ entries, selectedEntry, onSelectEntry }) => {
               return (
                 <li
                   key={entry.id || `${entry.title}-${entry.date}`}
-                  onClick={() => onSelectEntry(entry)}
+                  onClick={() => handleEntrySelect(entry)}
                   className={isSelected ? 'selected' : ''}
                   aria-current={isSelected ? 'page' : undefined}
                 >
