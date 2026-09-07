@@ -306,6 +306,29 @@
     overflow: visible;
   }
 
+  .date-range {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    display: grid;
+    align-items: end;
+  }
+
+  .date-range label {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .date-range-separator {
+    white-space: nowrap;
+  }
+
+  .date-input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
   .search-bar-wrapper,
   .date-input-wrapper {
     width: 100%;
