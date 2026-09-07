@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .sidebar-container {
   flex: 1;
   padding: 20px;
@@ -126,6 +132,8 @@
 .date-filters {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
   margin-bottom: 20px;
 }
 
@@ -137,14 +145,20 @@
 }
 
 .date-range {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: end;
   gap: 8px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .date-range label {
-  flex: 1 1 0;
+  display: block;
+  width: 100%;
   min-width: 0;
+  max-width: 100%;
 }
 
 .date-range label > span {
@@ -158,25 +172,43 @@
   padding-bottom: 8px;
   color: var(--color-text-muted);
   font-size: 12px;
-}
-
-.date-input {
-  padding: 6px;
-  padding-right: 30px;
-  position: relative;
+  white-space: nowrap;
 }
 
 .date-input-wrapper {
   position: relative;
+  display: block;
   width: 100%;
   min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .date-input-wrapper .date-input {
+  display: block;
+  box-sizing: border-box;
   width: 100%;
-  max-width: 100%;
   min-width: 0;
+  max-width: 100%;
   margin-bottom: 0;
+}
+
+.date-input {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  padding: 6px;
+  padding-right: 30px;
+
+  /*
+   * Prevent Safari/iOS from using the native date control's
+   * intrinsic width instead of the width supplied by the grid.
+   */
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .previous-posts-heading {
@@ -194,8 +226,11 @@
   border-top: 2px solid black;
 }
 
-/* Hide the native calendar-picker glyph (WebKit/Blink only) but keep it
-   clickable, so our custom pixelarticons icon can sit on top of it. */
+/*
+ * Hide the native calendar-picker glyph (WebKit/Blink only)
+ * but keep it clickable, so our custom pixelarticons icon
+ * can sit on top of it.
+ */
 .date-input::-webkit-calendar-picker-indicator {
   opacity: 0;
   position: absolute;
@@ -207,11 +242,10 @@
 }
 
 .date-input-icon {
-  /* Only shown in browsers where we can actually hide the native
-     calendar glyph (see the ::-webkit-calendar-picker-indicator rule
-     above) - otherwise (Firefox) this would double up with the native
-     icon it can't style away, so it stays hidden there and Firefox's
-     own icon shows instead. */
+  /*
+   * Only shown in browsers where we can actually hide the
+   * native calendar glyph (see the rule above).
+   */
   display: none;
   position: absolute;
   top: 50%;
@@ -308,29 +342,22 @@
 
   .date-range {
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    display: grid;
-    align-items: end;
   }
 
-  .date-range label {
+  .date-range label,
+  .date-input-wrapper {
     width: 100%;
     min-width: 0;
-  }
-
-  .date-range-separator {
-    white-space: nowrap;
+    max-width: 100%;
   }
 
   .date-input {
     width: 100%;
-    max-width: 100%;
     min-width: 0;
-    -webkit-appearance: none;
-    appearance: none;
+    max-width: 100%;
   }
 
-  .search-bar-wrapper,
-  .date-input-wrapper {
+  .search-bar-wrapper {
     width: 100%;
   }
 
