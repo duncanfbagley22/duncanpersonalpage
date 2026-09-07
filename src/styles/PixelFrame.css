@@ -12,6 +12,7 @@
   flex-direction: column;
   width: min(100% - clamp(1rem, 5vw, 5rem), 1500px);
   height: calc(100vh - (var(--frame-gap) * 2));
+  height: calc(100dvh - (var(--frame-gap) * 2));
   margin: var(--frame-gap) auto;
   padding: clamp(0.45rem, 1.2vw, 0.9rem);
   background: var(--frame-charcoal);
