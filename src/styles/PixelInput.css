@@ -1,0 +1,62 @@
+/* Shared "pixel" input styling — chunky border with single-step pixelated
+   corners, matching the retro game look used elsewhere on the site (see
+   the button treatment in Header.css .header-control).
+
+   NOTE: a plain `border` + `clip-path` on one element doesn't work here —
+   clip-path cuts the border away at the notches, leaving an unframed flat
+   diagonal cut. Instead this uses a two-layer "frame" trick: an outer
+   wrapper painted in the border color and clipped to the notched shape
+   (the notches show that color, acting as the border), with the actual
+   input inset inside it and clipped to a slightly smaller matching notch.
+
+   Usage:
+     <div class="pixel-input-frame">
+       <input class="pixel-input" ... />
+     </div>
+   Add any layout class (width, margin) to the wrapper; add only
+   text/padding-related classes to the input itself. */
+
+.pixel-input-frame {
+  --pixel-input-notch: 0.4rem;
+  --pixel-input-thickness: 3px;
+  --pixel-input-notch-inner: calc(var(--pixel-input-notch) - var(--pixel-input-thickness));
+
+  position: relative;
+  background: #232a3d;
+  padding: var(--pixel-input-thickness);
+  transition: background 0.15s ease;
+  clip-path: polygon(
+    0 var(--pixel-input-notch), var(--pixel-input-notch) var(--pixel-input-notch), var(--pixel-input-notch) 0,
+    calc(100% - var(--pixel-input-notch)) 0, calc(100% - var(--pixel-input-notch)) var(--pixel-input-notch),
+    100% var(--pixel-input-notch), 100% calc(100% - var(--pixel-input-notch)),
+    calc(100% - var(--pixel-input-notch)) calc(100% - var(--pixel-input-notch)), calc(100% - var(--pixel-input-notch)) 100%,
+    var(--pixel-input-notch) 100%, var(--pixel-input-notch) calc(100% - var(--pixel-input-notch)), 0 calc(100% - var(--pixel-input-notch))
+  );
+}
+
+.pixel-input-frame:focus-within {
+  background: var(--color-primary);
+}
+
+.pixel-input {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  font-family: 'Pixelify Sans', sans-serif;
+  color: var(--color-text);
+  background: linear-gradient(180deg, #f4f5fa 0%, #dfe2ee 100%);
+  box-shadow: inset 2px 2px 0 rgba(35, 42, 61, 0.18);
+  clip-path: polygon(
+    0 var(--pixel-input-notch-inner), var(--pixel-input-notch-inner) var(--pixel-input-notch-inner), var(--pixel-input-notch-inner) 0,
+    calc(100% - var(--pixel-input-notch-inner)) 0, calc(100% - var(--pixel-input-notch-inner)) var(--pixel-input-notch-inner),
+    100% var(--pixel-input-notch-inner), 100% calc(100% - var(--pixel-input-notch-inner)),
+    calc(100% - var(--pixel-input-notch-inner)) calc(100% - var(--pixel-input-notch-inner)), calc(100% - var(--pixel-input-notch-inner)) 100%,
+    var(--pixel-input-notch-inner) 100%, var(--pixel-input-notch-inner) calc(100% - var(--pixel-input-notch-inner)), 0 calc(100% - var(--pixel-input-notch-inner))
+  );
+}
+
+.pixel-input::placeholder {
+  color: var(--color-text-muted);
+}

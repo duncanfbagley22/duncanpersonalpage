@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import Sidebar from '../../components/Sidebar.js';
 import BlogEntry from '../../components/BlogEntry.js';
+import PageBanner from '../../components/PageBanner.js';
 import '../../styles/Blog.css';
 import { app } from '../../firebase.js'; // Ensure your Firebase app is correctly imported
 
@@ -36,14 +37,17 @@ const Blog = () => {
   };
 
   return (
-    <div className="blog-container">
-      <Sidebar entries={blogEntries} onSelectEntry={handleEntrySelect} />
-      <div className="blog-main">
-        {selectedEntry ? (
-          <BlogEntry entry={selectedEntry} />
-        ) : (
-          <p>Loading...</p>
-        )}
+    <div className="blog-page">
+      <PageBanner title="Blog" subtitle="Notes, updates, and things I've been working on" />
+      <div className="blog-container">
+        <Sidebar entries={blogEntries} onSelectEntry={handleEntrySelect} />
+        <div className="blog-main">
+          {selectedEntry ? (
+            <BlogEntry entry={selectedEntry} />
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
       </div>
     </div>
   );

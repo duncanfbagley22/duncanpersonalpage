@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Calendar2 } from 'pixelarticons/react';
+import '../styles/PixelInput.css';
 import '../styles/Sidebar.css';
 
 const Sidebar = ({ entries, onSelectEntry }) => {
@@ -37,33 +39,41 @@ const Sidebar = ({ entries, onSelectEntry }) => {
   return (
     <div className="sidebar-container">
       {/* Search Bar */}
-      <input
-        type="text"
-        placeholder="Search by title, tag, link, or metadata..."
-        value={searchQuery}
-        onChange={handleSearch}
-        className="search-bar"
-      />
+      <div className="pixel-input-frame search-bar-wrapper">
+        <input
+          type="text"
+          placeholder="Search by title, tag, link, or metadata..."
+          value={searchQuery}
+          onChange={handleSearch}
+          className="search-bar pixel-input"
+        />
+      </div>
 
       {/* Date Filters */}
       <div className="date-filters">
         <label>
           Start Date:
-          <input
-            type="date"
-            value={startDate}
-            onChange={handleStartDateChange}
-            className="date-input"
-          />
+          <div className="date-input-wrapper pixel-input-frame">
+            <input
+              type="date"
+              value={startDate}
+              onChange={handleStartDateChange}
+              className="date-input pixel-input"
+            />
+            <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
+          </div>
         </label>
         <label>
           End Date:
-          <input
-            type="date"
-            value={endDate}
-            onChange={handleEndDateChange}
-            className="date-input"
-          />
+          <div className="date-input-wrapper pixel-input-frame">
+            <input
+              type="date"
+              value={endDate}
+              onChange={handleEndDateChange}
+              className="date-input pixel-input"
+            />
+            <Calendar2 className="date-input-icon" aria-hidden="true" focusable="false" />
+          </div>
         </label>
       </div>
 

@@ -1,12 +1,22 @@
-.blog-container {
+.blog-page {
     display: flex;
-    margin: 20px;
-    margin: 0 auto;
-    overflow-y: hidden;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
   }
-  
+
+  .blog-container {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+  }
+
   .blog-main {
     flex: 3;
     margin-left: 20px;
+    min-height: 0;
+    overflow: hidden;
   }
-  

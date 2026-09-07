@@ -2,15 +2,17 @@
   flex: 1;
   padding: 20px;
   border-right: 2px solid var(--color-quaternary);
-  height: 89vh;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.search-bar-wrapper {
+  width: 90%;
+  margin-bottom: 20px;
 }
 
 .search-bar {
-  width: 90%;
   padding: 8px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border-width: 1px;
 }
 
 .date-filters {
@@ -22,10 +24,53 @@
 
 .date-input {
   padding: 6px;
-  margin-bottom: 10px;
+  padding-right: 30px;
+  position: relative;
+}
+
+.date-input-wrapper {
+  position: relative;
   width: 90%;
-  border-radius: 8px;
-  border-width: 1px;
+}
+
+.date-input-wrapper .date-input {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* Hide the native calendar-picker glyph (WebKit/Blink only) but keep it
+   clickable, so our custom pixelarticons icon can sit on top of it. */
+.date-input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 26px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.date-input-icon {
+  /* Only shown in browsers where we can actually hide the native
+     calendar glyph (see the ::-webkit-calendar-picker-indicator rule
+     above) - otherwise (Firefox) this would double up with the native
+     icon it can't style away, so it stays hidden there and Firefox's
+     own icon shows instead. */
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+@supports selector(::-webkit-calendar-picker-indicator) {
+  .date-input-icon {
+    display: block;
+  }
 }
 
 .entry-list {

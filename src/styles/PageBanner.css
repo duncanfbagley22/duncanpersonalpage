@@ -1,0 +1,52 @@
+/* Page-title banner — recolored to match the blue-ish chrome used on the
+   Home hero banner (see Home.css .home-hero-banner), including its
+   stepped/pixel-rounded corners, and inset from the page edges rather
+   than spanning full width. */
+
+.page-banner {
+  position: relative;
+  flex: 0 0 auto;
+  width: fit-content;
+  max-width: min(100%, 720px);
+  margin: clamp(1rem, 3vw, 1.75rem) auto 1.1rem;
+  padding: 0.85rem clamp(1.25rem, 3vw, 2.25rem) 0.95rem;
+  text-align: center;
+  background: linear-gradient(180deg, #eef1fb 0%, #c2cbe8 46%, #8393bd 100%);
+  border: 3px solid #232a3d;
+  box-shadow:
+    inset 3px 3px 0 rgba(255, 255, 255, 0.72),
+    inset -3px -3px 0 rgba(63, 72, 104, 0.55),
+    4px 4px 0 rgba(23, 28, 36, 0.35);
+  /* Stepped (staircase) corners on all four sides, matching the
+     home-hero-banner's pixel-rounded look rather than plain square/round. */
+  clip-path: polygon(
+    0 0.9rem, 0.3rem 0.9rem, 0.3rem 0.6rem, 0.6rem 0.6rem, 0.6rem 0.3rem, 0.9rem 0.3rem, 0.9rem 0,
+    calc(100% - 0.9rem) 0, calc(100% - 0.9rem) 0.3rem, calc(100% - 0.6rem) 0.3rem, calc(100% - 0.6rem) 0.6rem, calc(100% - 0.3rem) 0.6rem, calc(100% - 0.3rem) 0.9rem, 100% 0.9rem,
+    100% calc(100% - 0.9rem), calc(100% - 0.3rem) calc(100% - 0.9rem), calc(100% - 0.3rem) calc(100% - 0.6rem), calc(100% - 0.6rem) calc(100% - 0.6rem), calc(100% - 0.6rem) calc(100% - 0.3rem), calc(100% - 0.9rem) calc(100% - 0.3rem), calc(100% - 0.9rem) 100%,
+    0.9rem 100%, 0.9rem calc(100% - 0.3rem), 0.6rem calc(100% - 0.3rem), 0.6rem calc(100% - 0.6rem), 0.3rem calc(100% - 0.6rem), 0.3rem calc(100% - 0.9rem), 0 calc(100% - 0.9rem)
+  );
+}
+
+.page-banner-title {
+  margin: 0;
+  font-family: 'Pixel Game', monospace;
+  color: #262d3f;
+  font-size: clamp(1.1rem, 2vw + 0.6rem, 1.7rem);
+  letter-spacing: 0.06em;
+  text-shadow: 2px 2px 0 #ffffff, 3px 3px 0 #6b7699;
+}
+
+.page-banner-subtitle {
+  margin: 0.35rem 0 0;
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: clamp(0.7rem, 1vw + 0.4rem, 0.9rem);
+  color: #4a5372;
+  text-shadow: 1px 1px 0 #ffffff;
+}
+
+@media (max-width: 600px) {
+  .page-banner {
+    padding: 0.65rem 1.1rem 0.75rem;
+    margin: 1rem auto 0.85rem;
+  }
+}

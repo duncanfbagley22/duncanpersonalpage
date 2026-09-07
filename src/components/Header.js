@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import NavGrid from './NavGrid';
 import '../styles/Header.css';
 
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [menuOpen, setMenuOpen] = useState(false);
   const isHome = location.pathname === '/';
 
   const handleBack = () => {
@@ -28,31 +26,10 @@ const Header = () => {
               >
                 <span aria-hidden="true">←</span>
               </button>
-              <button
-                type="button"
-                className={`header-control header-menu-toggle${menuOpen ? ' is-open' : ''}`}
-                onClick={() => setMenuOpen((isOpen) => !isOpen)}
-                aria-expanded={menuOpen}
-                aria-controls="header-navigation"
-                aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
-                title={menuOpen ? 'Close navigation' : 'Open navigation'}
-              >
-                <span aria-hidden="true" className="menu-glyph">
-                  <span />
-                  <span />
-                  <span />
-                </span>
-              </button>
             </div>
           )}
           {!isHome && <Link to="/" className="banner-name">Duncan Bagley</Link>}
-          {!isHome && <span className="header-balance" aria-hidden="true" />}
         </div>
-        {!isHome && menuOpen && (
-          <nav id="header-navigation" className="header-navigation" aria-label="Main navigation">
-            <NavGrid size="compact" onNavigate={() => setMenuOpen(false)} />
-          </nav>
-        )}
       </div>
     </header>
   );

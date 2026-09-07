@@ -43,20 +43,12 @@
   padding: 0 clamp(0.9rem, 3vw, 2rem);
 }
 
-.header-controls,
-.header-balance {
+.header-controls {
   position: absolute;
   left: clamp(0.7rem, 2vw, 1.5rem);
   display: flex;
   align-items: center;
   gap: 0.35rem;
-}
-
-.header-balance {
-  left: auto;
-  right: clamp(0.7rem, 2vw, 1.5rem);
-  width: 4.5rem;
-  height: 2.35rem;
 }
 
 .header-control {
@@ -87,18 +79,6 @@
   line-height: 1;
 }
 
-.menu-glyph {
-  display: grid;
-  gap: 0.22rem;
-  width: 1.05rem;
-}
-
-.menu-glyph span {
-  display: block;
-  height: 3px;
-  background: currentColor;
-}
-
 .banner-name {
   font-family: 'Pixel Game', monospace;
   color: #f0f2f6;
@@ -113,27 +93,6 @@
 .banner-name:hover,
 .banner-name:focus-visible {
   opacity: 0.8;
-}
-
-.header-navigation {
-  position: absolute;
-  top: calc(100% - 0.2rem);
-  left: clamp(0.7rem, 2vw, 1.5rem);
-  right: clamp(0.7rem, 2vw, 1.5rem);
-  z-index: 5;
-  padding: 0.7rem;
-  background: linear-gradient(180deg, #e7e9f0, #b4bbcc);
-  border: 3px solid #252b35;
-  box-shadow: inset 2px 2px 0 #ffffff, inset -3px -3px 0 #747c90, 4px 4px 0 #171c24;
-  clip-path: polygon(0 0.5rem, 0.5rem 0.5rem, 0.5rem 0, calc(100% - 0.5rem) 0, calc(100% - 0.5rem) 0.5rem, 100% 0.5rem, 100% calc(100% - 0.5rem), calc(100% - 0.5rem) calc(100% - 0.5rem), calc(100% - 0.5rem) 100%, 0.5rem 100%, 0.5rem calc(100% - 0.5rem), 0 calc(100% - 0.5rem));
-}
-
-.header-navigation .nav-grid {
-  gap: 0.55rem 0.8rem;
-}
-
-.header-navigation .nav-pill {
-  min-height: 2.7rem;
 }
 
 /* ---------- Nav card grid ---------- */
@@ -522,13 +481,5 @@
 
   .nav-grid-large .nav-pill-label {
     font-size: 1.15rem;
-  }
-
-  .header-navigation .nav-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .header-navigation .nav-pill {
-    aspect-ratio: 5 / 1;
   }
 }
