@@ -108,9 +108,10 @@
 
 .search-bar {
   width: 100%;
-    height: 38px;
+  height: 38px;
   padding: 8px;
   padding-right: 34px;
+  font-size: 14px;
 }
 
 .search-bar-wrapper {
@@ -187,8 +188,8 @@
 .date-input-wrapper .date-input {
   display: block;
   box-sizing: border-box;
-    height: 38px;
   width: 100%;
+  height: 38px;
   min-width: 0;
   max-width: 100%;
   margin-bottom: 0;
@@ -199,11 +200,15 @@
   display: block;
   box-sizing: border-box;
   width: 100%;
+  height: 38px;
   min-width: 0;
   max-width: 100%;
+  padding: 6px;
   padding-right: 26px;
+  font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: clip;
 
   /*
    * Prevent Safari/iOS from using the native date control's
@@ -373,13 +378,13 @@
   }
 
   .date-input {
-        font-size: 12px;
     width: 100%;
     min-width: 0;
     max-width: 100%;
-      white-space: nowrap;
-  overflow: hidden;
-  text-overflow: clip;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
   }
 
   .search-bar-wrapper {
@@ -418,5 +423,3 @@
     padding-right: 0;
   }
 }
-
-
