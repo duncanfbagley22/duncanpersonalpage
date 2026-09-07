@@ -40,7 +40,11 @@ const Blog = () => {
     <div className="blog-page">
       <PageBanner title="Blog" subtitle="Notes, updates, and things I've been working on" />
       <div className="blog-container">
-        <Sidebar entries={blogEntries} onSelectEntry={handleEntrySelect} />
+        <Sidebar
+          entries={blogEntries}
+          selectedEntry={selectedEntry}
+          onSelectEntry={handleEntrySelect}
+        />
         <div className="blog-main">
           {selectedEntry ? (
             <BlogEntry entry={selectedEntry} />

@@ -73,10 +73,9 @@
   outline: none;
 }
 
-.header-back span {
-  font-family: 'Pixel Game', monospace;
-  font-size: 1.5rem;
-  line-height: 1;
+.header-back-icon {
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 .banner-name {

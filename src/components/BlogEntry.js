@@ -22,6 +22,7 @@ const BlogEntry = ({ entry }) => {
   const { title, date, tags, externalLink, content } = entry;
 
   return (
+    <div className="blog-entry-frame">
     <div className="blog-entry-container">
       <h2>{title}</h2>
       <p className="entry-date">{date}</p>
@@ -65,6 +66,7 @@ const BlogEntry = ({ entry }) => {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 };

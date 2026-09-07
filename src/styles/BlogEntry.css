@@ -1,7 +1,39 @@
-.blog-entry-container {
+/* Outer frame: painted in the border color and clipped to the notched
+   shape, so the notches themselves read as the border (see the same
+   trick used by .pixel-frame / .pixel-frame-inner). */
+.blog-entry-frame {
+    position: relative;
+    min-height: 0;
+    background: #232a3d;
+    padding: 4px;
+    margin: 20px;
+    box-shadow: 4px 4px 0 rgba(23, 28, 36, 0.35);
+    clip-path: polygon(
+      0 0.6rem, 0.6rem 0.6rem, 0.6rem 0,
+      calc(100% - 0.6rem) 0, calc(100% - 0.6rem) 0.6rem,
+      100% 0.6rem, 100% calc(100% - 0.6rem),
+      calc(100% - 0.6rem) calc(100% - 0.6rem), calc(100% - 0.6rem) 100%,
+      0.6rem 100%, 0.6rem calc(100% - 0.6rem), 0 calc(100% - 0.6rem)
+    );
+  }
+
+  .blog-entry-container {
     padding: 20px;
-    height: 100%;
     overflow-y: auto;
+    background: linear-gradient(180deg, #f4f5fa 0%, #dfe2ee 100%);
+    clip-path: polygon(
+      0 calc(0.6rem - 4px), calc(0.6rem - 4px) calc(0.6rem - 4px), calc(0.6rem - 4px) 0,
+      calc(100% - (0.6rem - 4px)) 0, calc(100% - (0.6rem - 4px)) calc(0.6rem - 4px),
+      100% calc(0.6rem - 4px), 100% calc(100% - (0.6rem - 4px)),
+      calc(100% - (0.6rem - 4px)) calc(100% - (0.6rem - 4px)), calc(100% - (0.6rem - 4px)) 100%,
+      calc(0.6rem - 4px) 100%, calc(0.6rem - 4px) calc(100% - (0.6rem - 4px)), 0 calc(100% - (0.6rem - 4px))
+    );
+  }
+
+  .blog-entry-container h2 {
+    font-family: 'Pixel Game', monospace;
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
   }
   
   .entry-date {
@@ -33,7 +65,14 @@
     color: var(--color-text);
     padding: 5px 10px;
     margin-right: 5px;
-    border-radius: 4px;
+    display: inline-block;
+    clip-path: polygon(
+      0 4px, 4px 4px, 4px 0,
+      calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
+      100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px),
+      calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px),
+      0 calc(100% - 4px)
+    );
   }
   
   .entry-links {

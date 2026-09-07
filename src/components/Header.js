@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'pixelarticons/react';
 import '../styles/Header.css';
 
 const Header = () => {
@@ -24,7 +25,7 @@ const Header = () => {
                 aria-label="Go back"
                 title="Go back"
               >
-                <span aria-hidden="true">←</span>
+                <ArrowLeft className="header-back-icon" aria-hidden="true" focusable="false" />
               </button>
             </div>
           )}
