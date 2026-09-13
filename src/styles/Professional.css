@@ -45,7 +45,7 @@
   
   .summary-text h3 {
     font-size: 24px;
-    margin: 4px 0 4px 0;
+    margin: 4px 0 16px 0;
     color: var(--color-text-muted);
     font-family: 'Pixel Game', monospace;
   }

@@ -68,7 +68,7 @@ const Professional = () => {
         <img src={headShot} alt="Headshot" className="headshot" />
         <div className="summary-text">
           <h1>Duncan Bagley</h1>
-          <h3>Manager - Connor Group</h3>
+          <h3>Finance & Systems - Scale AI</h3>
           <div className="button-container">
             <a href="https://www.linkedin.com/in/duncan-bagley/" target="_blank" rel="noopener noreferrer">
               <button className="icon-button">
