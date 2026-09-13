@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { getFirestore, collection, addDoc, Timestamp, query, where, getDocs } from 'firebase/firestore';
 import { app } from '../../firebase.js'; // Import your Firebase app configuration
 import '../../styles/MessageCenter.css';
+import PageBanner from '../../components/PageBanner.js';
 
 const MessageCenter = () => {
   const [senderName, setSenderName] = useState('');
@@ -76,9 +77,9 @@ const MessageCenter = () => {
   };
 
   return (
-    <div className="message-center">
-      <h1>Message Center</h1>
-      <h3>Send Duncan a message using the form below!</h3>
+    <div className="message-center-page">
+      <PageBanner title="Message" subtitle="Send Duncan a message using the form below" />
+      <div className="message-center">
       {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Display error message */}
 
       <form onSubmit={handleSubmit}>
@@ -145,6 +146,7 @@ const MessageCenter = () => {
         {/* Submit Button */}
         <button type="submit">Send Message</button>
       </form>
+      </div>
     </div>
   );
 };
