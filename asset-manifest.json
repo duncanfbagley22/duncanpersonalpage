@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/duncanpersonalpage/static/css/main.be4c7464.css",
+    "main.css": "/duncanpersonalpage/static/css/main.b7b714df.css",
     "main.js": "/duncanpersonalpage/static/js/main.43201bce.js",
     "static/js/453.c8f28252.chunk.js": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js",
     "static/media/Bagley.D.032026.RESUME.pdf": "/duncanpersonalpage/static/media/Bagley.D.032026.RESUME.a8c003c5de95f48a6135.pdf",
@@ -11,12 +11,12 @@
     "static/media/PixelifySans-Bold.ttf": "/duncanpersonalpage/static/media/PixelifySans-Bold.569c71a9c978ac2d434f.ttf",
     "static/media/Pixel Game.otf": "/duncanpersonalpage/static/media/Pixel Game.a7040ee1df82fd46813b.otf",
     "index.html": "/duncanpersonalpage/index.html",
-    "main.be4c7464.css.map": "/duncanpersonalpage/static/css/main.be4c7464.css.map",
+    "main.b7b714df.css.map": "/duncanpersonalpage/static/css/main.b7b714df.css.map",
     "main.43201bce.js.map": "/duncanpersonalpage/static/js/main.43201bce.js.map",
     "453.c8f28252.chunk.js.map": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.be4c7464.css",
+    "static/css/main.b7b714df.css",
     "static/js/main.43201bce.js"
   ]
 }
