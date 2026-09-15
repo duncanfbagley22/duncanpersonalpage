@@ -382,4 +382,28 @@
     grid-template-columns: 1fr; /* Stack cards vertically on small screens */
     gap: 1rem;
   }
+
+  /* Favorites hub page: stack the three main cards instead of squeezing them side by side */
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .card-container .card.main-cards {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .pixel-icon-badge {
+    width: 55%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 1.5rem auto 0;
+  }
+
+  .card-container .card img.pixel-icon {
+    width: 84%;
+    height: 84%;
+  }
 }
