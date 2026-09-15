@@ -3,6 +3,7 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { app } from '../../firebase'; // Make sure Firebase is initialized here
 import '../../styles/Favorites.css';
 import { getImage } from '../../utils/getRestaurantImage';
+import PageBanner from '../../components/PageBanner.js';
 
 const MediaPage = () => {
   const [restaurantsData, setRestaurantsData] = useState([]);
@@ -42,9 +43,8 @@ const MediaPage = () => {
 
   return (
     <div className="media-page">
+      <PageBanner title="Restaurants" subtitle="Great places I've eaten" />
       <section className="media-section restaurants-section">
-        <h2>Restaurants</h2>
-        <h3>Great places I've eaten</h3>
 
         {loading ? (
           <p>Loading...</p>

@@ -5,17 +5,6 @@
     text-align: center;
   }
   
-  .favorites-page h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .favorites-page h3 {
-    font-size: 1.2rem;
-    color: var(--color-text-muted);
-    margin-bottom: 2rem;
-  }
-  
   .card-container {
     display: flex;
     justify-content: space-between;
@@ -37,10 +26,68 @@
     transform: translateY(-10px); /* Animation on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
+
+  .card-container .card {
+    background-color: white;
+    border: 3px solid #000000;
+    border-radius: 0;
+    box-shadow: 3px 3px 0 rgba(23, 28, 36, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    clip-path: polygon(
+      0 6px, 6px 6px, 6px 0,
+      calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
+      100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px),
+      calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px),
+      0 calc(100% - 6px)
+    );
+  }
+
+  .card-container .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 0 rgba(23, 28, 36, 0.42);
+  }
   
   .card img {
     object-fit:fill;
     background-color: #9d9c9c;
+  }
+
+  .pixel-icon-badge {
+    width: 200px;
+    height: 200px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #101012;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.08) 34%,
+      rgba(0, 0, 0, 0.12) 62%,
+      rgba(0, 0, 0, 0.48) 100%
+    );
+    box-shadow:
+      inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+      inset 2px 2px 0 rgba(255, 255, 255, 0.4);
+    clip-path: polygon(
+      0 6px, 6px 6px, 6px 0,
+      calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
+      100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px),
+      calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px),
+      0 calc(100% - 6px)
+    );
+  }
+
+  .card-container .card img.pixel-icon {
+    width: 168px;
+    height: 168px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    background-color: transparent;
+    display: block;
+    margin: 0;
   }
   
   .card-content {
@@ -71,7 +118,7 @@
 
 .media-section h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -103,14 +150,22 @@
 .card {
   min-width: 160px;
   background-color: white;
-  border-radius: 8px;
+  border: 3px solid #000000;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 0 rgba(23, 28, 36, 0.35);
   cursor: pointer;
   transition: transform 0.3s ease;
   text-align: center;
   display: flex;
   flex-direction: column;
+  clip-path: polygon(
+    0 6px, 6px 6px, 6px 0,
+    calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
+    100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px),
+    0 calc(100% - 6px)
+  );
 }
 
 .card:hover {
@@ -244,11 +299,19 @@
 .close-button {
   margin-top: 20px;
   background-color: var(--color-secondary-dark);
-  border: none;
+  border: 3px solid var(--color-primary-dark);
   color: var(--color-on-brand);
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 0;
   cursor: pointer;
+  font-weight: bold;
+  clip-path: polygon(
+    0 4px, 4px 4px, 4px 0,
+    calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
+    100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px),
+    0 calc(100% - 4px)
+  );
 }
 
 .close-button:hover {
@@ -267,12 +330,20 @@
 /* Individual restaurant card */
 .restaurant-card {
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid #000000;
+  border-radius: 0;
+  box-shadow: 3px 3px 0 rgba(23, 28, 36, 0.35);
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease;
   text-align: center;
+  clip-path: polygon(
+    0 6px, 6px 6px, 6px 0,
+    calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
+    100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px),
+    0 calc(100% - 6px)
+  );
 }
 
 .restaurant-card:hover {

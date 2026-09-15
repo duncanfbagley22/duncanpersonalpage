@@ -3,6 +3,7 @@ import '../../styles/Favorites.css';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { app } from '../../firebase'; // Make sure Firebase is initialized here
 import { getImage } from '../../utils/getBooksPodcastsImage';
+import PageBanner from '../../components/PageBanner.js';
 
 const MediaPage = () => {
   const [podcastsData, setPodcastsData] = useState([]);
@@ -41,10 +42,10 @@ const MediaPage = () => {
 
   return (
     <div className="media-page">
+      <PageBanner title="Books & Podcasts" subtitle="My go-to reads and listens" />
       {/* Podcasts Section */}
       <section className="media-section podcasts-section">
         <h2>Podcasts</h2>
-        <h3>Some podcasts that I frequent</h3>
         <div className="scrollable-cards">
           {podcastsData.map((podcast) => (
             <div key={podcast.id} className="card" onClick={() => handleCardClick(podcast)}>
@@ -60,7 +61,6 @@ const MediaPage = () => {
       {/* Books Section */}
       <section className="media-section books-section">
         <h2>Books</h2>
-        <h3>A few books I've recently read</h3>
         <div className="scrollable-cards">
           {bookdata.map((book) => (
             <div key={book.id} className="card" onClick={() => handleCardClick(book)}>

@@ -3,6 +3,7 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import '../../styles/Favorites.css';
 import { app } from '../../firebase'; // Ensure Firebase is initialized
 import { getImage } from '../../utils/getTvMovieImage';
+import PageBanner from '../../components/PageBanner.js';
 
 const MediaPage = () => {
   const db = getFirestore(app);
@@ -50,9 +51,9 @@ useEffect(() => {
 
   return (
     <div className="media-page">
+      <PageBanner title="TV & Movies" subtitle="Some of my favorite shows and films" />
       <section className="media-section tv-section">
         <h2>TV Shows</h2>
-        <h3>Some of my favorite TV shows</h3>
         <div className="scrollable-cards">
           {tvData.map((tv) => (
             <div key={tv.id} className="card" onClick={() => handleCardClick(tv)}>
@@ -67,7 +68,6 @@ useEffect(() => {
 
       <section className="media-section movies-section">
         <h2>Movies</h2>
-        <h3>A few movies I've enjoyed recently</h3>
         <div className="scrollable-cards">
           {moviesData.map((movie) => (
             <div key={movie.id} className="card" onClick={() => handleCardClick(movie)}>
