@@ -44,7 +44,7 @@ function AdminDelete() {
 
     try {
       const querySnapshot = await getDocs(collection(db, collectionName));
-      const docs = querySnapshot.docs.map((docSnap) => ({ id: docSnap.id, ...docSnap.data() }));
+      const docs = querySnapshot.docs.map((docSnap) => ({ ...docSnap.data(), id: docSnap.id }));
       setDocuments(docs);
     } catch (error) {
       console.error('Error fetching documents:', error);
@@ -80,7 +80,7 @@ function AdminDelete() {
       await deleteDoc(doc(db, currentCollection, selectedDocId));
       // Refresh the document list for the current type.
       const querySnapshot = await getDocs(collection(db, currentCollection));
-      const docs = querySnapshot.docs.map((docSnap) => ({ id: docSnap.id, ...docSnap.data() }));
+      const docs = querySnapshot.docs.map((docSnap) => ({ ...docSnap.data(), id: docSnap.id }));
       setDocuments(docs);
       setSelectedDocId('none');
       setDocumentDetails(null);

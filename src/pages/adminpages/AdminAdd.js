@@ -14,7 +14,7 @@ const CONTENT_TYPE_OPTIONS = [
 ];
 
 const STREAMING_OPTIONS = [
-  'Disney+', 'Hulu', 'Netflix', 'Paramount+', 'Max', 'Amazon Prime', 'Peacock', 'Apple TV+',
+  'Disney+', 'Hulu', 'Netflix', 'Paramount+', 'HBO Max', 'Amazon Prime', 'Peacock', 'Apple TV+',
 ];
 
 const BLOG_ICON_OPTIONS = [

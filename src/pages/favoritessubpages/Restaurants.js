@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { app } from '../../firebase'; // Make sure Firebase is initialized here
 import '../../styles/Favorites.css';
-import { getImage } from '../../utils/getRestaurantImage';
 import PageBanner from '../../components/PageBanner.js';
 
 const MediaPage = () => {
@@ -56,7 +55,7 @@ const MediaPage = () => {
                 className="restaurant-card"
                 onClick={() => handleCardClick(restaurant)}
               >
-                <img src={getImage(restaurant.image)} alt={restaurant.name} />
+                <img src={restaurant.image} alt={restaurant.name} />
                 <h3>{restaurant.name}</h3>
                 <p>{restaurant.location}</p>
               </div>
@@ -70,7 +69,7 @@ const MediaPage = () => {
           <div className="favorites-popup-content" onClick={(e) => e.stopPropagation()}>
             <div className="favorites-popup-header">
               <img
-                src={getImage(selectedItem.image)}
+                src={selectedItem.image}
                 alt={selectedItem.name}
                 className="favorites-popup-image"
               />
