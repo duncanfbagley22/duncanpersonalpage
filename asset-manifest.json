@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/duncanpersonalpage/static/css/main.5b992f6d.css",
-    "main.js": "/duncanpersonalpage/static/js/main.f17872cb.js",
+    "main.css": "/duncanpersonalpage/static/css/main.075d3f20.css",
+    "main.js": "/duncanpersonalpage/static/js/main.3cc67221.js",
     "static/js/453.c8f28252.chunk.js": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js",
     "static/media/dumbnbastats1.png": "/duncanpersonalpage/static/media/dumbnbastats1.1af447fe73aba9f23cf8.png",
     "static/media/personalPage1.png": "/duncanpersonalpage/static/media/personalPage1.1e93ecd01445af0929de.png",
@@ -32,16 +32,14 @@
     "static/media/webpageicon.png": "/duncanpersonalpage/static/media/webpageicon.b88adbf13bc7946fedce.png",
     "static/media/videogameicon.png": "/duncanpersonalpage/static/media/videogameicon.a59a8b6a8ef9e085001b.png",
     "static/media/Pixel Game.otf": "/duncanpersonalpage/static/media/Pixel Game.a7040ee1df82fd46813b.otf",
-    "static/media/pokeballicon.png": "/duncanpersonalpage/static/media/pokeballicon.bdb2ec9f2d47c9bd5402.png",
     "static/media/tvicon.png": "/duncanpersonalpage/static/media/tvicon.834563cebb6f3a353e5c.png",
-    "static/media/basketballicon.webp": "/duncanpersonalpage/static/media/basketballicon.bcb815453b6107f22e4a.webp",
     "index.html": "/duncanpersonalpage/index.html",
-    "main.5b992f6d.css.map": "/duncanpersonalpage/static/css/main.5b992f6d.css.map",
-    "main.f17872cb.js.map": "/duncanpersonalpage/static/js/main.f17872cb.js.map",
+    "main.075d3f20.css.map": "/duncanpersonalpage/static/css/main.075d3f20.css.map",
+    "main.3cc67221.js.map": "/duncanpersonalpage/static/js/main.3cc67221.js.map",
     "453.c8f28252.chunk.js.map": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b992f6d.css",
-    "static/js/main.f17872cb.js"
+    "static/css/main.075d3f20.css",
+    "static/js/main.3cc67221.js"
   ]
 }
