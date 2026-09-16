@@ -99,7 +99,7 @@
 
 .pdata-image-frame {
   flex: 0 0 auto;
-  background: var(--color-primary); /* shows through if the image is missing/broken */
+  background: #bfe4f7; /* light sky blue — shows through if the image is missing/broken */
   border: 3px solid #232a3d;
   clip-path: polygon(0 0.5rem, 0.5rem 0.5rem, 0.5rem 0, calc(100% - 0.5rem) 0, calc(100% - 0.5rem) 0.5rem, 100% 0.5rem, 100% calc(100% - 0.5rem), calc(100% - 0.5rem) calc(100% - 0.5rem), calc(100% - 0.5rem) 100%, 0.5rem 100%, 0.5rem calc(100% - 0.5rem), 0 calc(100% - 0.5rem));
   box-shadow:
@@ -386,7 +386,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--color-primary); /* shows through if the image is missing/broken */
+  background: #bfe4f7; /* light sky blue — shows through if the image is missing/broken */
   border-radius: 8px;
   transition: box-shadow 0.15s ease;
 }

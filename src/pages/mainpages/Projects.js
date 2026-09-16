@@ -2,6 +2,7 @@ import '../../styles/Projects.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { db } from '../../firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import { getImageSafe } from '../../utils/getProjectImage';
 
 const BOX_SIZE = 30; // mirrors a Gen 3 Pokémon storage box (6 x 5)
 
@@ -82,23 +83,28 @@ const Projects = () => {
         </div>
 
         <div className="box-grid">
-          {visibleProjects.map((project) => (
-            <button
-              key={project.id}
-              className={`box-slot ${selectedProject?.id === project.id ? 'selected' : ''}`}
-              onClick={() => handleSlotClick(project)}
-              type="button"
-            >
-              <span className="box-slot-image-wrap">
-                <img
-                  src={project.projectimage}
-                  alt={project.title}
-                  onError={(e) => { e.target.style.display = 'none'; }}
-                />
-              </span>
-              <span className="box-slot-caption">{project.title}</span>
-            </button>
-          ))}
+          {visibleProjects.map((project) => {
+            const thumbSrc = getImageSafe(project.projectimage);
+            return (
+              <button
+                key={project.id}
+                className={`box-slot ${selectedProject?.id === project.id ? 'selected' : ''}`}
+                onClick={() => handleSlotClick(project)}
+                type="button"
+              >
+                <span className="box-slot-image-wrap">
+                  {thumbSrc && (
+                    <img
+                      src={thumbSrc}
+                      alt={project.title}
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                  )}
+                </span>
+                <span className="box-slot-caption">{project.title}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -127,15 +133,19 @@ const ProjectDataContent = ({ project }) => {
     setCurrentImageIndex(prev => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
+  const mainSrc = getImageSafe(images[currentImageIndex]);
+
   return (
     <>
       <div className="pdata-image-frame">
-        <img
-          src={images[currentImageIndex]}
-          alt={`${project.title}${images.length > 1 ? ` (${currentImageIndex + 1}/${images.length})` : ''}`}
-          onClick={() => window.open(images[currentImageIndex], '_blank')}
-          onError={(e) => { e.target.style.display = 'none'; }}
-        />
+        {mainSrc && (
+          <img
+            src={mainSrc}
+            alt={`${project.title}${images.length > 1 ? ` (${currentImageIndex + 1}/${images.length})` : ''}`}
+            onClick={() => window.open(mainSrc, '_blank')}
+            onError={(e) => { e.target.style.display = 'none'; }}
+          />
+        )}
       </div>
 
       {images.length > 1 && (
