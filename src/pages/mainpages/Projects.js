@@ -97,7 +97,7 @@ const Projects = () => {
                     <img
                       src={thumbSrc}
                       alt={project.title}
-                      onError={(e) => { e.target.style.display = 'none'; }}
+                      onError={(e) => { e.target.remove(); }}
                     />
                   )}
                 </span>
@@ -143,7 +143,7 @@ const ProjectDataContent = ({ project }) => {
             src={mainSrc}
             alt={`${project.title}${images.length > 1 ? ` (${currentImageIndex + 1}/${images.length})` : ''}`}
             onClick={() => window.open(mainSrc, '_blank')}
-            onError={(e) => { e.target.style.display = 'none'; }}
+            onError={(e) => { e.target.remove(); }}
           />
         )}
       </div>
