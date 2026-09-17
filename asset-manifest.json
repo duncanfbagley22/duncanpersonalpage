@@ -1,13 +1,15 @@
 {
   "files": {
     "main.css": "/duncanpersonalpage/static/css/main.81804232.css",
-    "main.js": "/duncanpersonalpage/static/js/main.22cca856.js",
+    "main.js": "/duncanpersonalpage/static/js/main.0d22f36e.js",
     "static/js/453.c8f28252.chunk.js": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js",
     "static/media/dumbnbastats1.png": "/duncanpersonalpage/static/media/dumbnbastats1.1af447fe73aba9f23cf8.png",
+    "static/media/WorldFoods1.png": "/duncanpersonalpage/static/media/WorldFoods1.8b30baa1a3b47e0c8dd3.png",
     "static/media/personalPage1.png": "/duncanpersonalpage/static/media/personalPage1.1e93ecd01445af0929de.png",
     "static/media/tvRandomizer1.png": "/duncanpersonalpage/static/media/tvRandomizer1.e0f3ae365dc421c073f3.png",
     "static/media/dumbnbastats2.png": "/duncanpersonalpage/static/media/dumbnbastats2.fdbbf076e9b96afb6502.png",
     "static/media/tvRandomizer2.png": "/duncanpersonalpage/static/media/tvRandomizer2.9cb73360018dfbb79533.png",
+    "static/media/WorldFoods2.png": "/duncanpersonalpage/static/media/WorldFoods2.a0f4838744914a49fe3f.png",
     "static/media/Bagley.D.032026.RESUME.pdf": "/duncanpersonalpage/static/media/Bagley.D.032026.RESUME.a8c003c5de95f48a6135.pdf",
     "static/media/personalPage3.png": "/duncanpersonalpage/static/media/personalPage3.7128a5f0844784eab996.png",
     "static/media/personalPage2.png": "/duncanpersonalpage/static/media/personalPage2.a915f65d7cf8e815c283.png",
@@ -32,11 +34,11 @@
     "static/media/Pixel Game.otf": "/duncanpersonalpage/static/media/Pixel Game.a7040ee1df82fd46813b.otf",
     "index.html": "/duncanpersonalpage/index.html",
     "main.81804232.css.map": "/duncanpersonalpage/static/css/main.81804232.css.map",
-    "main.22cca856.js.map": "/duncanpersonalpage/static/js/main.22cca856.js.map",
+    "main.0d22f36e.js.map": "/duncanpersonalpage/static/js/main.0d22f36e.js.map",
     "453.c8f28252.chunk.js.map": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.81804232.css",
-    "static/js/main.22cca856.js"
+    "static/js/main.0d22f36e.js"
   ]
 }
