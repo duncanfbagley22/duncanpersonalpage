@@ -436,12 +436,14 @@
 
 /* Raise + tilt only the pixel art itself on hover — the tile's own
    background/frame and caption stay put. drop-shadow (not box-shadow) is
-   alpha-aware, so it hugs the actual art's silhouette instead of the
-   square image container — no rectangular "card" appears behind
-   transparent-background icons. Alternating tilt direction so
-   neighboring tiles don't all lean the same way. */
-.box-slot:hover .box-slot-image-wrap {
-  overflow: visible; /* let the lifted image + its shadow escape the clip */
+   alpha-aware, so both the hover lift-shadow and the selected glow hug
+   the actual art's silhouette instead of the square image container —
+   no rectangular "card" or ring appears behind transparent-background
+   icons. Alternating tilt direction so neighboring tiles don't all lean
+   the same way. */
+.box-slot:hover .box-slot-image-wrap,
+.box-slot.selected .box-slot-image-wrap {
+  overflow: visible; /* let the lifted image + its shadow/glow escape the clip */
 }
 
 .box-slot:hover .box-slot-image-wrap img {
@@ -453,12 +455,27 @@
   transform: translateY(-6px) rotate(4deg);
 }
 
-.box-slot.selected .box-slot-image-wrap {
-  box-shadow: 0 0 0 3px var(--color-primary);
+/* Selected (at rest): a soft white glow traced around the art itself,
+   plus a slight scale-up */
+.box-slot.selected .box-slot-image-wrap img {
+  transform: scale(1.15);
+  filter:
+    drop-shadow(0 0 3px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.75));
 }
 
-.box-slot.selected:hover .box-slot-image-wrap {
-  box-shadow: 0 0 0 3px var(--color-primary);
+/* Selected + hovered: combine the lift-shadow and the glow, since filter
+   doesn't stack across separate rules the way box-shadow lists do */
+.box-slot.selected:hover .box-slot-image-wrap img {
+  transform: translateY(-6px) rotate(-4deg) scale(1.15);
+  filter:
+    drop-shadow(3px 6px 6px rgba(23, 28, 36, 0.45))
+    drop-shadow(0 0 3px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.75));
+}
+
+.box-slot.selected:nth-child(even):hover .box-slot-image-wrap img {
+  transform: translateY(-6px) rotate(4deg) scale(1.15);
 }
 
 .box-slot.selected .box-slot-caption {
@@ -511,11 +528,20 @@
     margin: 0 auto 0.6rem;
   }
 
-  /* Skip the lift/tilt-on-hover on touch devices where :hover can stick */
+  /* Skip the lift/tilt-on-hover on touch devices where :hover can stick,
+     but keep the selected glow if the tile is also selected */
   .box-slot:hover .box-slot-image-wrap img,
   .box-slot:nth-child(even):hover .box-slot-image-wrap img {
     transform: none;
     filter: none;
+  }
+
+  .box-slot.selected:hover .box-slot-image-wrap img,
+  .box-slot.selected:nth-child(even):hover .box-slot-image-wrap img {
+    transform: scale(1.15);
+    filter:
+      drop-shadow(0 0 3px rgba(255, 255, 255, 0.95))
+      drop-shadow(0 0 6px rgba(255, 255, 255, 0.75));
   }
 
   .box-slot:active .box-slot-image-wrap img {
