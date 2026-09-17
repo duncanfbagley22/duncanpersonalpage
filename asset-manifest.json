@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/duncanpersonalpage/static/css/main.075d3f20.css",
-    "main.js": "/duncanpersonalpage/static/js/main.3cc67221.js",
+    "main.css": "/duncanpersonalpage/static/css/main.81804232.css",
+    "main.js": "/duncanpersonalpage/static/js/main.22cca856.js",
     "static/js/453.c8f28252.chunk.js": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js",
     "static/media/dumbnbastats1.png": "/duncanpersonalpage/static/media/dumbnbastats1.1af447fe73aba9f23cf8.png",
     "static/media/personalPage1.png": "/duncanpersonalpage/static/media/personalPage1.1e93ecd01445af0929de.png",
@@ -28,18 +28,15 @@
     "static/media/PixelifySans-SemiBold.ttf": "/duncanpersonalpage/static/media/PixelifySans-SemiBold.e5433e6c6c9b33efca02.ttf",
     "static/media/PixelifySans-Medium.ttf": "/duncanpersonalpage/static/media/PixelifySans-Medium.90e95b704179ee40fa4b.ttf",
     "static/media/PixelifySans-Bold.ttf": "/duncanpersonalpage/static/media/PixelifySans-Bold.569c71a9c978ac2d434f.ttf",
-    "static/media/wordgameicon.png": "/duncanpersonalpage/static/media/wordgameicon.e1974b3434c24843caa4.png",
-    "static/media/webpageicon.png": "/duncanpersonalpage/static/media/webpageicon.b88adbf13bc7946fedce.png",
     "static/media/videogameicon.png": "/duncanpersonalpage/static/media/videogameicon.a59a8b6a8ef9e085001b.png",
     "static/media/Pixel Game.otf": "/duncanpersonalpage/static/media/Pixel Game.a7040ee1df82fd46813b.otf",
-    "static/media/tvicon.png": "/duncanpersonalpage/static/media/tvicon.834563cebb6f3a353e5c.png",
     "index.html": "/duncanpersonalpage/index.html",
-    "main.075d3f20.css.map": "/duncanpersonalpage/static/css/main.075d3f20.css.map",
-    "main.3cc67221.js.map": "/duncanpersonalpage/static/js/main.3cc67221.js.map",
+    "main.81804232.css.map": "/duncanpersonalpage/static/css/main.81804232.css.map",
+    "main.22cca856.js.map": "/duncanpersonalpage/static/js/main.22cca856.js.map",
     "453.c8f28252.chunk.js.map": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.075d3f20.css",
-    "static/js/main.3cc67221.js"
+    "static/css/main.81804232.css",
+    "static/js/main.22cca856.js"
   ]
 }
