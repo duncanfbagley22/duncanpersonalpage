@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/duncanpersonalpage/static/css/main.81804232.css",
-    "main.js": "/duncanpersonalpage/static/js/main.0d22f36e.js",
+    "main.js": "/duncanpersonalpage/static/js/main.96f5ab48.js",
     "static/js/453.c8f28252.chunk.js": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js",
     "static/media/dumbnbastats1.png": "/duncanpersonalpage/static/media/dumbnbastats1.1af447fe73aba9f23cf8.png",
     "static/media/WorldFoods1.png": "/duncanpersonalpage/static/media/WorldFoods1.8b30baa1a3b47e0c8dd3.png",
@@ -12,10 +12,12 @@
     "static/media/WorldFoods2.png": "/duncanpersonalpage/static/media/WorldFoods2.a0f4838744914a49fe3f.png",
     "static/media/Bagley.D.032026.RESUME.pdf": "/duncanpersonalpage/static/media/Bagley.D.032026.RESUME.a8c003c5de95f48a6135.pdf",
     "static/media/personalPage3.png": "/duncanpersonalpage/static/media/personalPage3.7128a5f0844784eab996.png",
+    "static/media/DuncanDailyDigest1.png": "/duncanpersonalpage/static/media/DuncanDailyDigest1.8fb33a6de93d46e1c05f.png",
     "static/media/personalPage2.png": "/duncanpersonalpage/static/media/personalPage2.a915f65d7cf8e815c283.png",
     "static/media/corgibutt1.png": "/duncanpersonalpage/static/media/corgibutt1.8550e76945799c8d823e.png",
     "static/media/unityPersonalPage1.png": "/duncanpersonalpage/static/media/unityPersonalPage1.29937e3f13164ee6d576.png",
     "static/media/unityPersonalPage2.png": "/duncanpersonalpage/static/media/unityPersonalPage2.f9fcd3eac179a915eae6.png",
+    "static/media/DuncanDailyDigest2.png": "/duncanpersonalpage/static/media/DuncanDailyDigest2.f367402a0e89ac84eb03.png",
     "static/media/PokemonAPI1.png": "/duncanpersonalpage/static/media/PokemonAPI1.c3bd76e1a262b15b9df5.png",
     "static/media/wordGame1.png": "/duncanpersonalpage/static/media/wordGame1.e0c7e46cfd387af17264.png",
     "static/media/wordGame3.png": "/duncanpersonalpage/static/media/wordGame3.d4ee145793a82c809cde.png",
@@ -34,11 +36,11 @@
     "static/media/Pixel Game.otf": "/duncanpersonalpage/static/media/Pixel Game.a7040ee1df82fd46813b.otf",
     "index.html": "/duncanpersonalpage/index.html",
     "main.81804232.css.map": "/duncanpersonalpage/static/css/main.81804232.css.map",
-    "main.0d22f36e.js.map": "/duncanpersonalpage/static/js/main.0d22f36e.js.map",
+    "main.96f5ab48.js.map": "/duncanpersonalpage/static/js/main.96f5ab48.js.map",
     "453.c8f28252.chunk.js.map": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.81804232.css",
-    "static/js/main.0d22f36e.js"
+    "static/js/main.96f5ab48.js"
   ]
 }
