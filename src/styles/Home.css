@@ -103,7 +103,7 @@
   display: block;
   font-family: 'Pixel Game', monospace;
   color: #262d3f;
-  font-size: clamp(1.8rem, 5vw + 1rem, 3.2rem);
+  font-size: clamp(2rem, 5.5vw + 1.1rem, 3.6rem);
   letter-spacing: 0.04em;
   text-shadow: 2px 2px 0 #ffffff, 3px 3px 0 #6b7699;
 }
@@ -122,7 +122,7 @@
   display: block;
   font-family: 'Pixel Game', monospace;
   color: #4a5372;
-  font-size: clamp(0.8rem, 1.3vw + 0.45rem, 1.1rem);
+  font-size: clamp(0.88rem, 1.4vw + 0.5rem, 1.2rem);
   letter-spacing: 0.14em;
   text-shadow: 1px 1px 0 #ffffff;
 }
@@ -186,6 +186,12 @@
 @media (max-width: 1199px) {
   .home-hero-banner-row {
     display: block;
+    /* Below this breakpoint the state outlines are hidden and the row is a
+       plain block wrapper around the banner, so it should size itself off
+       its actual parent instead of the raw viewport — the desktop version
+       above intentionally ignores the parent's 900px cap to give the
+       outlines room, which doesn't apply here. */
+    width: 100%;
   }
 
   .state-outline-svg {
@@ -197,17 +203,35 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .home-container {
+    min-height: 100%;
     padding: 0.75rem 0.75rem 1rem;
+    justify-content: flex-start;
   }
 
   .home-hero {
-    gap: 1.3rem;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .home-hero-banner-row {
+    flex: 0 0 auto;
   }
 
   .home-hero-banner {
     padding-block: 0.75rem;
+  }
+
+  /* NavGrid becomes a single, full-height column at this breakpoint (see
+     .nav-grid-large in Header.css) — let it grow to fill the rest of the
+     home page instead of sitting at its natural (small) content size. */
+  .nav-grid-large {
+    flex: 1 1 auto;
+    min-height: 0;
   }
 
   .popup {

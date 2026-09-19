@@ -230,6 +230,7 @@ const Overworld = ({ controlsOpen = false, onCloseControls = () => {} }) => {
               <h2>Controls</h2>
               <p><strong>W,A,S,D or Arrow Buttons</strong> - Move Character</p>
               <p><strong>SPACEBAR or A Button</strong> - Interact With Other Characters, Signs, and Objects</p>
+              <p><strong>B Button, Start, Select</strong> - No Function</p>
               <button onClick={onCloseControls} className="overworld-popup-button">Close</button>
             </>
           ) : (

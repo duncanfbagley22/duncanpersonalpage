@@ -490,20 +490,28 @@
 
   .nav-grid-large {
     grid-template-columns: 1fr;
-    gap: 1.15rem;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 1.25rem;
+    height: 100%;
+    margin: 0.85rem 0;
   }
 
   .nav-grid-large .nav-pill {
-    min-height: 46px;
-    aspect-ratio: 6 / 1;
+    min-height: 0;
+    height: 100%;
+    aspect-ratio: auto;
+    padding: 4px 14px 4px 10px;
   }
 
   .nav-grid-large .nav-pill-icon-badge {
-    width: 32px;
-    height: 32px;
+    /* Lower floor than before (was 32px/8vh/48px) so six pills can actually
+       shrink to fit on a short phone (iPhone SE) instead of hitting a hard
+       minimum and pushing the last pill off the bottom. */
+    width: clamp(26px, 7vh, 44px);
+    height: clamp(26px, 7vh, 44px);
   }
 
   .nav-grid-large .nav-pill-label {
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 2.6vh, 1.2rem);
   }
 }

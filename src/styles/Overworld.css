@@ -130,24 +130,55 @@
   max-width: 100%;
 }
 
-/* 1400px+: plenty of room, so the D-pad/A/B can flank the screen instead of
-   sitting below it — vertically center the whole console on the page too. */
-@media (min-width: 1400px) {
+/* 1400px+, or a phone/tablet turned sideways under that width: plenty of
+   horizontal room either way, so the D-pad/A/B can flank the screen instead
+   of sitting below it — vertically center the whole console on the page
+   too. */
+@media (min-width: 1400px), (max-width: 1399px) and (orientation: landscape) {
   .overworld-page {
     justify-content: center;
   }
 }
 
-/* Below 1400px, screen on top (GBA SP, clamshell-style), controls in a row
-   underneath instead of flanking the screen. The buttons stay visible at
-   every width — only the arrangement changes. */
-@media (max-width: 1399px) {
+/* Narrow AND sideways (a phone/tablet under 1400px in landscape): the
+   flanking layout above applies, but the desktop screen sizing (a plain vw
+   fraction) only produces the correct 800:510 shape on genuinely wide
+   viewports — on a short landscape phone it would go square again, the
+   same distortion the portrait fix avoids. Lock it the same way here, and
+   subtract the surrounding chrome (header bar, footer bar, the pixel-frame
+   border/padding, this console's own padding) from the viewport height
+   budget so the screen can't compute taller than what's actually left to
+   show it in. Console padding is trimmed here too, purely to claw back a
+   bit more height for the screen — landscape is tight on room. */
+@media (max-width: 1399px) and (orientation: landscape) {
   .overworld-console {
-    grid-template-columns: 1fr 1fr;
+    padding: 8px 12px 14px;
+  }
+
+  .overworld-screen {
+    width: min(78vw, calc((100dvh - 200px) * 800 / 510));
+    aspect-ratio: 800 / 510;
+    height: auto;
+  }
+}
+
+/* Narrow AND upright (a phone held normally): screen on top (GBA SP,
+   clamshell-style), controls in a row underneath instead of flanking the
+   screen. Turning the phone sideways switches back to the flanking layout
+   above instead of staying stacked. The buttons stay visible at every
+   width/orientation — only the arrangement changes. */
+@media (max-width: 1399px) and (orientation: portrait) {
+  .overworld-console {
+    /* Two flexible spacer columns on the outside keep the left/right button
+       clusters centered as a pair with a fixed gap between them, instead of
+       each being centered independently in its own half — which drifted
+       them apart as the viewport got wider. */
+    grid-template-columns: 1fr auto auto 1fr;
     grid-template-areas:
-      "screen screen"
-      "left right";
+      "screen screen screen screen"
+      ".      left   right  .";
     row-gap: 32px;
+    column-gap: clamp(20px, 6vw, 56px);
   }
 
   .overworld-console-left,
@@ -182,6 +213,8 @@
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
   touch-action: none;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.18), -1px -1px 0 rgba(0, 0, 0, 0.24);
   -webkit-text-stroke: 0.4px rgba(17, 18, 22, 0.15);
@@ -268,27 +301,27 @@
 /* A / B */
 .overworld-face-cluster {
   position: relative;
-  width: 132px;
-  height: 96px;
+  width: 150px;
+  height: 112px;
 }
 
 .console-btn--face-a,
 .console-btn--face-b {
   position: absolute;
-  width: 52px;
-  height: 52px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 19px;
+  font-size: 22px;
   color: #3a3c41;
   background: linear-gradient(180deg, #d7d9de 0%, #6d7077 100%);
   box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .console-btn--face-a { top: 0; right: 0; }
-.console-btn--face-b { top: 34px; right: 62px; }
+.console-btn--face-b { top: 40px; right: 72px; }
 
 .console-btn--face-a.is-pressed,
 .console-btn--face-b.is-pressed {
