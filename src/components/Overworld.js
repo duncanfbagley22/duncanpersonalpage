@@ -122,6 +122,15 @@ const Overworld = ({ controlsOpen = false, onCloseControls = () => {} }) => {
     return () => { document.body.style.overflow = 'auto'; };
   }, []);
 
+  // The header's info button lives outside this component, so it can be
+  // clicked while the start instructions are up, and controlsOpen (which lives
+  // in App) can also be left over from a previous visit. Either way, keep the
+  // controls popup closed until the game has started so it never appears on
+  // top of the instructions or right after pressing Start.
+  useEffect(() => {
+    if (!hasStarted && controlsOpen) onCloseControls();
+  }, [hasStarted, controlsOpen, onCloseControls]);
+
   const fireButton = useCallback((buttonId, type) => {
     const keys = BUTTON_KEYS[buttonId];
     if (!keys || !iframeRef.current) return;

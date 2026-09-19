@@ -419,6 +419,7 @@
   flex: 0 0 auto;
   font-family: 'Pixelify Sans', sans-serif;
   font-size: 0.7rem;
+  font-weight: 900;
   line-height: 1.2;
   height: 2.4em; /* reserved for exactly 2 lines, same for every tile, so
                     the image area stays a consistent size regardless of

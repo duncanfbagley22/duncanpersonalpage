@@ -23,10 +23,18 @@
   padding: 20px;
   width: 90%;
   max-width: 400px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 3px solid #000000;
+  border-radius: 0;
   text-align: center;
   z-index: 1000;
+  /* Same single-step pixel notch as the Favorites cards and popup. */
+  clip-path: polygon(
+    0 6px, 6px 6px, 6px 0,
+    calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
+    100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px),
+    0 calc(100% - 6px)
+  );
 }
 
 .overworld-popup-content h2 {
@@ -169,14 +177,18 @@
    width/orientation — only the arrangement changes. */
 @media (max-width: 1399px) and (orientation: portrait) {
   .overworld-console {
-    /* Two flexible spacer columns on the outside keep the left/right button
-       clusters centered as a pair with a fixed gap between them, instead of
-       each being centered independently in its own half — which drifted
-       them apart as the viewport got wider. */
-    grid-template-columns: 1fr auto auto 1fr;
+    /* Two equal columns that are allowed to shrink (minmax(0, 1fr)), so the
+       grid can never grow wider than its container — the old auto-sized
+       columns added up to more than a phone's usable width, which stretched
+       the grid and pushed the screen off to the right. The left cluster is
+       pushed to the end of its column and the right one to the start of its
+       column, so they stay a centered pair with a fixed gap between them
+       (instead of each being centered independently in its own half, which
+       drifted them apart as the viewport got wider). */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas:
-      "screen screen screen screen"
-      ".      left   right  .";
+      "screen screen"
+      "left   right";
     row-gap: 32px;
     column-gap: clamp(20px, 6vw, 56px);
   }
@@ -185,6 +197,9 @@
   .overworld-console-right {
     margin-top: 36px;
   }
+
+  .overworld-console-left { justify-self: end; }
+  .overworld-console-right { justify-self: start; }
 
   .overworld-screen {
     /* Locked-ratio sizing, the way a responsive video embed works: width is
