@@ -195,8 +195,6 @@ const UnityGame = () => {
           <h2>Controls</h2>
           <p><strong>W,A,S,D</strong> - Move Character</p>
           <p><strong>SPACEBAR</strong> - Interact With Other Characters, Signs, and Objects</p>
-          <p><strong>ARROW KEYS</strong> - Navigate Popup Menus</p>
-          <p><strong>ENTER</strong> - Make Selection Within Popup Menus</p>
           <button onClick={togglePopup} style={{
             marginTop: '20px', padding: '10px 20px', fontSize: '16px',
             backgroundColor: 'var(--color-secondary-dark)', color: '#ffffff',

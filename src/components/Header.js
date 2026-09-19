@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'pixelarticons/react';
+import { ArrowLeft, CircleInfo } from 'pixelarticons/react';
 import '../styles/Header.css';
 
-const Header = () => {
+const Header = ({ showInfo = false, infoOpen = false, onToggleInfo }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === '/';
@@ -30,6 +30,19 @@ const Header = () => {
             </div>
           )}
           {!isHome && <Link to="/" className="banner-name">Duncan Bagley</Link>}
+          {showInfo && (
+            <div className="header-controls header-controls-right" aria-label="Info">
+              <button
+                type="button"
+                className={`header-control header-info${infoOpen ? ' is-open' : ''}`}
+                onClick={onToggleInfo}
+                aria-label="Show controls"
+                title="Show controls"
+              >
+                <CircleInfo className="header-back-icon" aria-hidden="true" focusable="false" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>

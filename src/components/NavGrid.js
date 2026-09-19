@@ -16,7 +16,7 @@ import {
 } from './NavIcons';
 
 export const NAV_ITEMS = [
-  { to: '/', label: 'Home', Icon: HomeIcon, isHome: true, tint: '#7bc47f' },
+  { to: '/', label: 'Overworld', Icon: HomeIcon, isHome: true, tint: '#7bc47f' },
   { to: '/blog', label: 'Blog', Icon: BlogIcon, tint: '#e2735c' },
   { to: '/professional', label: 'Professional', Icon: ProfessionalIcon, tint: '#eab04a' },
   { to: '/projects', label: 'Projects', Icon: ProjectsIcon, tint: '#9b7fd1' },

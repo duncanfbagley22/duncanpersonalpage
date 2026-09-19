@@ -10,21 +10,25 @@ import Message from './pages/mainpages/MessageCenter';
 import BooksPodcasts from './pages/favoritessubpages/Books-Podcasts';
 import TVMovies from './pages/favoritessubpages/TV-Movies';
 import Restaurants from './pages/favoritessubpages/Restaurants';
-import UnityGame from './components/unityGame'; // Import UnityGame
-import Home from './pages/mainpages/Home'; // Import Home
+import Overworld from './components/Overworld'; // the walk-around game world
+import TitleScreen from './pages/mainpages/TitleScreen'; // landing/title screen
 import AdminAdd from './pages/adminpages/AdminAdd';
 import AdminDelete from './pages/adminpages/AdminDelete';
 import AdminMessages from './pages/adminpages/AdminMessages';
 import PixelFrame from './components/PixelFrame';
 import './styles/Global.css';
 
-function AppRoutes({ showUnityGame, handleContinue }) {
+function AppRoutes() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
+  const isOverworld = location.pathname === '/overworld';
+  const [controlsOpen, setControlsOpen] = useState(false);
+  const toggleControls = () => setControlsOpen((open) => !open);
+  const closeControls = () => setControlsOpen(false);
 
   const routes = (
     <Routes>
-          <Route path="/" element={<Home onContinue={handleContinue} />} />
+          <Route path="/" element={<TitleScreen />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/professional" element={<Professional />} />
           <Route path="/projects" element={<Projects />} />
@@ -33,7 +37,7 @@ function AppRoutes({ showUnityGame, handleContinue }) {
           <Route path="/books-podcasts" element={<BooksPodcasts />} />
           <Route path="/tv-movies" element={<TVMovies />} />
           <Route path="/restaurants" element={<Restaurants />} />
-          <Route path="/unity-game" element={<UnityGame />} />
+          <Route path="/overworld" element={<Overworld controlsOpen={controlsOpen} onCloseControls={closeControls} />} />
           {/* Admin routes: not linked from the main nav. No auth-check yet —
               access control still relies on Firestore security rules. */}
           <Route path="/admin" element={<AdminAdd />} />
@@ -45,7 +49,7 @@ function AppRoutes({ showUnityGame, handleContinue }) {
   return (
     <div className="App">
       {isAdminRoute ? <main className="admin-route-content">{routes}</main> : (
-        <PixelFrame header={<Header />}>
+        <PixelFrame header={<Header showInfo={isOverworld} infoOpen={controlsOpen} onToggleInfo={toggleControls} />}>
           <main className="pixel-frame-content">{routes}</main>
         </PixelFrame>
       )}
@@ -54,15 +58,9 @@ function AppRoutes({ showUnityGame, handleContinue }) {
 }
 
 function App() {
-  const [showUnityGame, setShowUnityGame] = useState(false); // State to control Unity game visibility
-  const handleContinue = () => {
-    setShowUnityGame(true); // Show the Unity game when continue is pressed
-  };
-
-  console.log(showUnityGame); // or some dummy read
   return (
     <Router>
-      <AppRoutes showUnityGame={showUnityGame} handleContinue={handleContinue} />
+      <AppRoutes />
     </Router>
   );
 }

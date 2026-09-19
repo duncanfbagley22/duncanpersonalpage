@@ -51,6 +51,11 @@
   gap: 0.35rem;
 }
 
+.header-controls-right {
+  left: auto;
+  right: clamp(0.7rem, 2vw, 1.5rem);
+}
+
 .header-control {
   display: grid;
   place-items: center;
@@ -457,6 +462,11 @@
 @media (max-width: 640px) {
   .header-controls {
     left: 1rem;
+  }
+
+  .header-controls-right {
+    left: auto;
+    right: 1rem;
   }
 
   .header-control {
