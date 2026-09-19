@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/duncanpersonalpage/static/css/main.048fbde8.css",
-    "main.js": "/duncanpersonalpage/static/js/main.4894247b.js",
+    "main.css": "/duncanpersonalpage/static/css/main.f51d7f39.css",
+    "main.js": "/duncanpersonalpage/static/js/main.841fa545.js",
     "static/js/453.c8f28252.chunk.js": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js",
     "static/media/dumbnbastats1.png": "/duncanpersonalpage/static/media/dumbnbastats1.1af447fe73aba9f23cf8.png",
     "static/media/WorldFoods1.png": "/duncanpersonalpage/static/media/WorldFoods1.8b30baa1a3b47e0c8dd3.png",
@@ -35,12 +35,12 @@
     "static/media/videogameicon.png": "/duncanpersonalpage/static/media/videogameicon.a59a8b6a8ef9e085001b.png",
     "static/media/Pixel Game.otf": "/duncanpersonalpage/static/media/Pixel Game.a7040ee1df82fd46813b.otf",
     "index.html": "/duncanpersonalpage/index.html",
-    "main.048fbde8.css.map": "/duncanpersonalpage/static/css/main.048fbde8.css.map",
-    "main.4894247b.js.map": "/duncanpersonalpage/static/js/main.4894247b.js.map",
+    "main.f51d7f39.css.map": "/duncanpersonalpage/static/css/main.f51d7f39.css.map",
+    "main.841fa545.js.map": "/duncanpersonalpage/static/js/main.841fa545.js.map",
     "453.c8f28252.chunk.js.map": "/duncanpersonalpage/static/js/453.c8f28252.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.048fbde8.css",
-    "static/js/main.4894247b.js"
+    "static/css/main.f51d7f39.css",
+    "static/js/main.841fa545.js"
   ]
 }
