@@ -212,8 +212,6 @@
   height: 44px;
   background: #6d7077;
   border: 2px solid #2e3035;
-  border-top: none;
-  border-bottom: none;
 }
 
 .console-btn--dpad-up,
@@ -232,10 +230,10 @@
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.5);
 }
 
-.console-btn--dpad-up { top: 0; left: 44px; border-radius: 10px 10px 0 0; }
-.console-btn--dpad-left { top: 44px; left: 0; border-radius: 10px 0 0 10px; }
-.console-btn--dpad-right { top: 44px; left: 88px; border-radius: 0 10px 10px 0; }
-.console-btn--dpad-down { top: 88px; left: 44px; border-radius: 0 0 10px 10px; }
+.console-btn--dpad-up { top: -2px; left: 44px; border-radius: 10px 10px 0 0; }
+.console-btn--dpad-left { top: 44px; left: -2px; border-radius: 10px 0 0 10px; }
+.console-btn--dpad-right { top: 44px; left: 90px; border-radius: 0 10px 10px 0; }
+.console-btn--dpad-down { top: 90px; left: 44px; border-radius: 0 0 10px 10px; }
 
 .console-btn--dpad-up.is-pressed,
 .console-btn--dpad-down.is-pressed,
@@ -283,7 +281,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
+  font-size: 19px;
   color: #3a3c41;
   background: linear-gradient(180deg, #d7d9de 0%, #6d7077 100%);
   box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);

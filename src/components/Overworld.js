@@ -65,13 +65,47 @@ const ConsoleButton = ({ label, shape, active = false, onPress, onRelease, class
   );
 };
 
+const DirectionalGlyph = ({ direction }) => {
+  const paths = {
+    up: 'M12 3 L21 18 H3 Z',
+    down: 'M12 21 L21 6 H3 Z',
+    left: 'M21 3 L6 12 L21 21 Z',
+    right: 'M3 3 L18 12 L3 21 Z',
+  };
+
+  const offsets = {
+    up: { x: 0, y: 0 },
+    down: { x: 0, y: 0 },
+    left: { x: -2, y: 0 },
+    right: { x: 2, y: 0 },
+  };
+
+  const offset = offsets[direction] || { x: 0, y: 0 };
+
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+      style={{
+        width: '18px',
+        height: '18px',
+        display: 'block',
+        transform: `translate(${offset.x}px, ${offset.y}px)`,
+      }}
+    >
+      <path d={paths[direction]} fill="currentColor" />
+    </svg>
+  );
+};
+
 const DirectionalPad = ({ activeButtons, onPress, onRelease }) => (
   <div className="overworld-dpad">
-    <ConsoleButton label="▲" shape="dpad-up" active={activeButtons.has('up')} onPress={() => onPress('up')} onRelease={() => onRelease('up')} />
-    <ConsoleButton label="◀" shape="dpad-left" active={activeButtons.has('left')} onPress={() => onPress('left')} onRelease={() => onRelease('left')} />
+    <ConsoleButton label={<DirectionalGlyph direction="up" />} shape="dpad-up" active={activeButtons.has('up')} onPress={() => onPress('up')} onRelease={() => onRelease('up')} />
+    <ConsoleButton label={<DirectionalGlyph direction="left" />} shape="dpad-left" active={activeButtons.has('left')} onPress={() => onPress('left')} onRelease={() => onRelease('left')} />
     <div className="overworld-dpad-hub" />
-    <ConsoleButton label="▶" shape="dpad-right" active={activeButtons.has('right')} onPress={() => onPress('right')} onRelease={() => onRelease('right')} />
-    <ConsoleButton label="▼" shape="dpad-down" active={activeButtons.has('down')} onPress={() => onPress('down')} onRelease={() => onRelease('down')} />
+    <ConsoleButton label={<DirectionalGlyph direction="right" />} shape="dpad-right" active={activeButtons.has('right')} onPress={() => onPress('right')} onRelease={() => onRelease('right')} />
+    <ConsoleButton label={<DirectionalGlyph direction="down" />} shape="dpad-down" active={activeButtons.has('down')} onPress={() => onPress('down')} onRelease={() => onRelease('down')} />
   </div>
 );
 
@@ -79,7 +113,6 @@ const Overworld = ({ controlsOpen = false, onCloseControls = () => {} }) => {
   const [hasStarted, setHasStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(true);
   const [pressedButtons, setPressedButtons] = useState(() => new Set());
-  const [keyboardButtons, setKeyboardButtons] = useState(() => new Set());
   const iframeRef = useRef(null);
   const heldButtons = useRef(new Set());
   const holdIntervals = useRef({});
@@ -116,24 +149,18 @@ const Overworld = ({ controlsOpen = false, onCloseControls = () => {} }) => {
     fireButton(buttonId, 'keyup');
   }, [fireButton]);
 
-  // Physical keyboard presses light up the matching on-screen button too.
   useEffect(() => {
     if (!hasStarted) return undefined;
 
     const handleKeyDown = (e) => {
       if (!WATCHED_CODES.has(e.code) || e.repeat) return;
       const buttonId = CODE_TO_BUTTON[e.code];
-      setKeyboardButtons((prev) => (prev.has(buttonId) ? prev : new Set(prev).add(buttonId)));
+      if (buttonId) fireButton(buttonId, 'keydown');
     };
     const handleKeyUp = (e) => {
       if (!WATCHED_CODES.has(e.code)) return;
       const buttonId = CODE_TO_BUTTON[e.code];
-      setKeyboardButtons((prev) => {
-        if (!prev.has(buttonId)) return prev;
-        const next = new Set(prev);
-        next.delete(buttonId);
-        return next;
-      });
+      if (buttonId) fireButton(buttonId, 'keyup');
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -142,9 +169,9 @@ const Overworld = ({ controlsOpen = false, onCloseControls = () => {} }) => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [hasStarted]);
+  }, [hasStarted, fireButton]);
 
-  const activeButtons = new Set([...pressedButtons, ...keyboardButtons]);
+  const activeButtons = new Set(pressedButtons);
 
   const handleStart = () => {
     setHasStarted(true);
